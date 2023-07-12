@@ -1,7 +1,7 @@
 import { ComponentPropsWithoutRef } from 'react';
 
 interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
-  size?: 'sm' | 'md' | 'lg' | 'full'; // default = 'md'
+  width?: 'sm' | 'md' | 'lg' | 'full'; // default = 'md'
   color?: 'primary' | 'secondary' | 'red'; // default = 'primary'
   position?: 'relative' | 'fixed' | 'absolute'; // default = 'relative'
   rounded?: boolean; // default = true
@@ -22,7 +22,7 @@ const BTN_SIZE = {
 };
 
 const Button = ({
-  size = 'md',
+  width = 'md',
   color = 'primary',
   rounded = true,
   margin = 'm-0',
@@ -34,7 +34,7 @@ const Button = ({
 
   return (
     <button
-      className={`btn ${BTN_SIZE[size]} ${BTN_COLOR[color]} ${position} ${button_rounded} ${margin}`}
+      className={`btn ${BTN_SIZE[width]} ${BTN_COLOR[color]} ${position} ${button_rounded} ${margin}`}
       {...rest}
     >
       {children}
