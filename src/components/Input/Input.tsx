@@ -24,11 +24,11 @@ const Input = ({
   width = 'md',
   margin = 'm-0',
   position = 'relative',
-  guideLine = '가이드라인',
+  guideLine,
   rounded = false,
   bold = false,
   inputValidation = true,
-  required = true,
+  required = false,
   ...rest
 }: InputProps) => {
   const isBold = bold ? 'font-bold' : '';
