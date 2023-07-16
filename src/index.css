@@ -6,6 +6,10 @@ aside::-webkit-scrollbar {
   display: none;
 }
 
+section::-webkit-scrollbar {
+  display: none;
+}
+
 .btn {
   @apply text-white p-2 font-bold h-[3rem];
 }
