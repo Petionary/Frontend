@@ -1,11 +1,24 @@
 const PlaceItem = () => {
+  // 1. article : onClick => () => nav('/place/id')
+  // 2. interface place {
+  //     장소이름;
+  //     구분; 카페 / 레스토랑 / 공원 / 병원 / 호텔 / 미용실 등
+  //     주소; 문자열
+  //     전화번호; 문자열
+  //     거리; 회원 주소 바탕으로 거리 계산 -> 유틸 함수 작성 필요
+  // }
+
   return (
-    <article className="w-[15rem] h-[8rem] bg-dark relative rounded-xl overflow-hidden">
-      <div className="w-full h-full absolute bg-[url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPuvD9dyBEWQb4zgRaa9Jf3-xUSNWZJzGk2K2D6zgHjA&s)] hover:opacity-20 z-10" />
-      <div className="w-full h-full absolute flex flex-col p-5 text-white text-sm">
-        <span>장소 이름</span>
-        <span>주소</span>
-        <span>전화번호</span>
+    <article className="w-[15rem] h-[15rem] relative rounded-xl border overflow-hidden border-collapse sm:w-[25rem] sm:h-[20rem]">
+      <div className="w-full h-[50%] bg-dark" />
+      <div className="w-full h-[50%] flex flex-col justify-between py-3 px-5 text-sm">
+        <div className="flex w-full items-end justify-between mx-auto">
+          <span className="text-sm text-dark">장소 이름</span>
+          <span className="text-xs text-light">구분</span>
+        </div>
+        <span className="text-xs text-dark">서울특별시 양천구 신정동</span>
+        <span className="text-xs text-dark">02-1234-5678</span>
+        <span className="text-xs text-light">0.5km</span>
       </div>
     </article>
   );
