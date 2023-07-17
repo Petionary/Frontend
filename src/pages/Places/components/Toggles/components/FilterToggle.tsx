@@ -1,14 +1,15 @@
-import { ReactComponent as ArrowIcon } from '../../../assets/ArrowIcon.svg';
+import { ReactComponent as ArrowIcon } from '../../../../../assets/ArrowIcon.svg';
 
-interface FilterToolProps {
+interface FilterToggleProps {
   handleFilterToggle: () => void;
   filterToggle: boolean;
 }
 
-const FilterTool = ({ filterToggle, handleFilterToggle }: FilterToolProps) => {
+const FilterToggle = ({ filterToggle, handleFilterToggle }: FilterToggleProps) => {
   const direction = filterToggle
     ? 'rotate-0 group-hover:rotate-180'
     : 'rotate-180 group-hover:rotate-0';
+
   return (
     <span
       onClick={handleFilterToggle}
@@ -20,4 +21,4 @@ const FilterTool = ({ filterToggle, handleFilterToggle }: FilterToolProps) => {
   );
 };
 
-export default FilterTool;
+export default FilterToggle;

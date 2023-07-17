@@ -1,19 +1,23 @@
-import Categories from './components/Categories';
-import Options from './components/Options';
-import PlaceItem from './components/PlaceItem';
+import useToggle from '../../hooks/useToggle';
+import Filter from './components/Filter';
+import PlaceList from './components/PlaceList';
+import Toggles from './components/Toggles';
 
 const Places = () => {
+  const [filterToggle, handleFilterToggle] = useToggle();
+  const [mapToggle, handleMapToggle] = useToggle();
+
   return (
-    <main className="flex flex-col items-center justify-between min-h-[90vh] mx-auto py-2 px-10">
-      <section className="w-full h-[3.5rem] px-5 flex justify-between md:flex-col sm:flex-col sm:h-[5rem] bg-[#fff]">
-        <Categories />
-        <Options />
-      </section>
-      <section className="absolute text-center w-full -z-10">sorttools</section>
-      <section className="my-5 h-[35rem] gap-3 grid grid-cols-5 auto-rows-min overflow-y-scroll sm:grid-cols-1">
-        <PlaceItem />
-        <PlaceItem />
-      </section>
+    <main className="flex flex-col items-center min-h-[90vh] mx-auto py-2 px-10 overflow-x-hidden">
+      <Toggles filterToggle={filterToggle} handleFilterToggle={handleFilterToggle} />
+      <Filter filterToggle={filterToggle} />
+      <PlaceList />
+      <button
+        onClick={handleMapToggle}
+        className="fixed bottom-10 bg-primary hover:bg-primary-dark rounded-full h-[2.5rem] min-w-[9rem] px-10 text-white text-xs font-bold"
+      >
+        {mapToggle ? '목록' : '지도로 보기'}
+      </button>
     </main>
   );
 };

@@ -1,4 +1,4 @@
-const PlaceItem = () => {
+const Item = () => {
   // 1. article : onClick => () => nav('/place/id')
   // 2. interface place {
   //     장소이름;
@@ -9,9 +9,9 @@ const PlaceItem = () => {
   // }
 
   return (
-    <article className="w-[15rem] h-[15rem] relative rounded-xl border overflow-hidden border-collapse sm:w-[25rem] sm:h-[20rem]">
-      <div className="w-full h-[50%] bg-dark" />
-      <div className="w-full h-[50%] flex flex-col justify-between py-3 px-5 text-sm">
+    <article className="cursor-pointer hover:shadow-xl w-[15rem] h-[15rem] relative rounded-xl overflow-hidden sm:w-full sm:h-[20rem]">
+      <div className="w-full h-[50%] sm:h-[70%] bg-dark" />
+      <div className="w-full h-[50%] sm:h-[30%] flex flex-col justify-between py-3 px-5 text-sm">
         <div className="flex w-full items-end justify-between mx-auto">
           <span className="text-sm text-dark">장소 이름</span>
           <span className="text-xs text-light">구분</span>
@@ -24,4 +24,4 @@ const PlaceItem = () => {
   );
 };
 
-export default PlaceItem;
+export default Item;
