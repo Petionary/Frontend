@@ -15,7 +15,7 @@ section::-webkit-scrollbar {
 }
 
 .input {
-  @apply h-[2.5rem] px-5 my-1 border border-dark;
+  @apply h-[2.5rem] px-5 my-1 border text-xs border-dark;
 }
 
 body {
