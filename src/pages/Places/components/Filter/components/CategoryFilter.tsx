@@ -1,15 +1,33 @@
-const CategoryFilter = () => {
-  const styles = 'min-w-[3.5rem] rounded-xl cursor-pointer hover:font-bold border border-light p-2';
+import { ChangeEvent, useEffect } from 'react';
+import CategoryItem from './CategoryItem';
+import { TPlaceParam } from '../../..';
+
+interface Props {
+  params: TPlaceParam;
+  // eslint-disable-next-line no-unused-vars
+  handleParams: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+const CATEGORIES = ['cafe', 'restaurant', 'hotel', 'park', 'hospital', 'etc'];
+
+const CategoryFilter = ({ params, handleParams }: Props) => {
+  useEffect(() => {
+    console.log(params);
+  }, [params]);
 
   return (
-    <div>
+    <div className="h-[20%]">
       <span className="text-xs text-text">카테고리</span>
-      <div className="w-full text-xs text-light text-center flex justify-between items-center p-2 m-2 flex-wrap">
-        <span className={styles}>카페</span>
-        <span className={styles}>음식점</span>
-        <span className={styles}>병원</span>
-        <span className={styles}>공원</span>
-        <span className={styles}>기타</span>
+      <div className="text-xs h-full text-light text-center flex items-center p-2 flex-wrap">
+        {CATEGORIES.map(category => (
+          <CategoryItem
+            key={category}
+            category={category}
+            value={category}
+            checked={params.category === category}
+            onChange={handleParams}
+          />
+        ))}
       </div>
     </div>
   );

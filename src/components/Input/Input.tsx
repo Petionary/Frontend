@@ -45,6 +45,7 @@ const Input = ({
       <input
         className={`input ${isRounded} ${INPUT_SIZE[width]} ${isInvalid}`}
         placeholder={rest.placeholder ? rest.placeholder : '내용을 입력해주세요.'}
+        {...rest}
       />
       {guideLine && (
         <p className={`text-xs px-1 ${!inputValidation ? 'text-red-light' : 'text-light'}`}>
