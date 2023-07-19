@@ -4,8 +4,8 @@ export default {
   theme: {
     screens: {
       sm: { max: '819px' },
-      md: { min: '820px', max: '1280px' },
-      lg: { min: '1281px' },
+      md: { min: '820px', max: '1023px' },
+      lg: { min: '1080px' },
     },
     extend: {
       colors: {
