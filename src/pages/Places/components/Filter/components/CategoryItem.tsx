@@ -1,4 +1,4 @@
-import { ChangeEvent, ComponentPropsWithRef } from 'react';
+import { ComponentPropsWithRef } from 'react';
 
 interface CategoryItemProps extends ComponentPropsWithRef<'input'> {
   category: string;
@@ -15,9 +15,9 @@ const CATEGOTIES: { [key: string]: string } = {
 
 const CategoryItem = ({ category, ...rest }: CategoryItemProps) => {
   return (
-    <label>
+    <label className="relative cursor-pointer w-[3.5rem] h-[2rem] mx-auto my-1 overflow-hidden">
       <input type="checkbox" className="peer sr-only" name="category" readOnly {...rest} />
-      <span className="w-[3.5rem] rounded-xl cursor-pointer hover:font-bold border border-light py-2 px-3 peer-checked:border-secondary peer-checked:bg-secondary peer-checked:text-white peer-checked:font-bold">
+      <span className="absolute border border-light rounded-2xl h-full w-full text-center p-[.4rem] hover:font-bold peer-checked:border-primary peer-checked:bg-primary peer-checked:text-white peer-checked:font-bold">
         {CATEGOTIES[category]}
       </span>
     </label>

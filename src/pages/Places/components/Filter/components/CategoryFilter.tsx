@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect } from 'react';
+import { ChangeEvent } from 'react';
 import CategoryItem from './CategoryItem';
 import { TPlaceParam } from '../../..';
 
@@ -11,14 +11,13 @@ interface Props {
 const CATEGORIES = ['cafe', 'restaurant', 'hotel', 'park', 'hospital', 'etc'];
 
 const CategoryFilter = ({ params, handleParams }: Props) => {
-  useEffect(() => {
-    console.log(params);
-  }, [params]);
-
   return (
-    <div className="h-[20%]">
-      <span className="text-xs text-text">카테고리</span>
-      <div className="text-xs h-full text-light text-center flex items-center p-2 flex-wrap">
+    <div className="text-xs">
+      <div className="flex justify-between px-2">
+        <span className="text-text">카테고리</span>
+        <span className="text-light cursor-pointer hover:font-bold">초기화</span>
+      </div>
+      <div className="p-2 my-2 grid grid-cols-5 overflow-hidden">
         {CATEGORIES.map(category => (
           <CategoryItem
             key={category}
