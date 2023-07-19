@@ -1,7 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, ReducerType } from '../../store';
-import { handleMenuToggle } from '../../store/slices/toggleSlice';
 
 import SideBar from '../SideBar/SideBar';
 import Input from '../Input/Input';
@@ -9,18 +6,17 @@ import Input from '../Input/Input';
 import Icons from './components/Icons';
 import HeaderLogo from './components/HeaderLogo';
 import HeaderMenuToggle from './components/HeaderMenuToggle';
+import useToggle from '../../hooks/useToggle';
 
 const Header = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { menuToggle } = useSelector((state: ReducerType) => state.toggle);
   const nav = useNavigate();
-  const handleMenuOpen = () => dispatch(handleMenuToggle());
+  const [menuToggle, handleMenuToggle] = useToggle(false);
 
   return (
     <>
       <header className="flex justify-between px-10 w-full h-[4rem]">
         <section className="flex items-center w-[10rem] justify-between sm:w-full">
-          <HeaderMenuToggle menuToggle={menuToggle} handleMenuOpen={handleMenuOpen} />
+          <HeaderMenuToggle menuToggle={menuToggle} handleMenuOpen={handleMenuToggle} />
           <HeaderLogo onClick={() => nav('/')} />
         </section>
         <section className="flex items-center justify-between w-[30rem] sm:hidden">

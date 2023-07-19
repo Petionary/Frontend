@@ -1,11 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import logger from 'redux-logger';
-import toggleSlice from './slices/toggleSlice';
 
-export const rootReducer = combineReducers({
-  toggle: toggleSlice,
-});
+export const rootReducer = combineReducers({});
 
 const store = configureStore({
   reducer: rootReducer,
