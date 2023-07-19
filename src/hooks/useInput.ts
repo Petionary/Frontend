@@ -4,16 +4,16 @@ const useInput = <T>(initialInput: T) => {
   const [input, setInput] = useState(initialInput);
 
   // eslint-disable-next-line no-unused-vars
-  const handleInput: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void = e => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setInput({ ...input, [name]: value });
   };
 
-  const resetInput: () => void = () => {
+  const resetInput = () => {
     setInput(initialInput);
   };
 
-  return [input, handleInput, resetInput];
+  return { input, handleInputChange, resetInput, setInput };
 };
 
 export default useInput;

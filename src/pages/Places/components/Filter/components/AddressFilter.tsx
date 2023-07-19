@@ -1,20 +1,22 @@
-import Dropdown from '../../../../../components/Dropdown';
+import { ChangeEvent } from 'react';
+import { TPlaceParam } from '../../..';
+import SelectAddress from './SelectAddress';
+import FilterTitle from './FilterTitle';
 
-const AddressFilter = () => {
+interface AddressFilterProps {
+  params: TPlaceParam;
+  setParams: React.Dispatch<React.SetStateAction<TPlaceParam>>;
+  // eslint-disable-next-line no-unused-vars
+  handleParams: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+}
+
+const AddressFilter = ({ params, handleParams, setParams }: AddressFilterProps) => {
+  const resetAddress = () => setParams({ ...params, region: '', district: '' });
+
   return (
     <div className="text-xs flex flex-col">
-      <div className="flex justify-between px-2">
-        <span className="text-text">주소검색</span>
-        <span className="text-light cursor-pointer hover:font-bold">초기화</span>
-      </div>
-      <div className="flex m-2">
-        <Dropdown>
-          <option>시도</option>
-        </Dropdown>
-        <Dropdown>
-          <option>시군구</option>
-        </Dropdown>
-      </div>
+      <FilterTitle filter="주소검색" resetFilter={resetAddress} />
+      <SelectAddress params={params} handleParams={handleParams} />
     </div>
   );
 };
