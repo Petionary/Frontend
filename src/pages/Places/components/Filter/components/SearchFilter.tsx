@@ -1,20 +1,22 @@
 import Input from '../../../../../components/Input/Input';
 import { ChangeEvent } from 'react';
 import { TPlaceParam } from '../../..';
+import FilterTitle from './FilterTitle';
 
-interface Props {
+interface SearchFilterProps {
   params: TPlaceParam;
+  setParams: React.Dispatch<React.SetStateAction<TPlaceParam>>;
   // eslint-disable-next-line no-unused-vars
-  handleParams: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleParams: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
 
-const SearchFilter = ({ params, handleParams }: Props) => {
+const SearchFilter = ({ params, setParams, handleParams }: SearchFilterProps) => {
+  const resetSearch = () => {
+    setParams({ ...params, search: '' });
+  };
   return (
     <div className="text-xs">
-      <div className="flex justify-between px-2">
-        <span className="text-text">검색</span>
-        <span className="text-light cursor-pointer hover:font-bold">초기화</span>
-      </div>
+      <FilterTitle filter="검색" resetFilter={resetSearch} />
       <div className="relative z-0 my-2 p-2">
         <Input
           width="full"
