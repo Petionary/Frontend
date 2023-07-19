@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect } from 'react';
+import { useEffect } from 'react';
 import useInput from '../../hooks/useInput';
 import useToggle from '../../hooks/useToggle';
 import Filter from './components/Filter';

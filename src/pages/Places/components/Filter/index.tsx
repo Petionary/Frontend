@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect } from 'react';
+import { ChangeEvent } from 'react';
 import CategoryFilter from './components/CategoryFilter';
 import SearchFilter from './components/SearchFilter';
 import { TPlaceParam } from '../..';
