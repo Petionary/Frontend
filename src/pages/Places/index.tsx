@@ -4,6 +4,7 @@ import useToggle from '../../hooks/useToggle';
 import Filter from './components/Filter';
 import PlaceList from './components/PlaceList';
 import Toggles from './components/Toggles';
+import MapContainer from './components/MapContainer';
 
 const placeParam = {
   search: '',
@@ -17,6 +18,7 @@ export type TPlaceParam = typeof placeParam;
 const Places = () => {
   const [filterToggle, handleFilterToggle] = useToggle();
   const [mapToggle, handleMapToggle] = useToggle();
+
   const {
     input: params,
     handleInputChange: handleParams,
@@ -38,10 +40,10 @@ const Places = () => {
         setParams={setParams}
         handleParams={handleParams}
       />
-      <PlaceList />
+      {mapToggle ? <MapContainer /> : <PlaceList />}
       <button
         onClick={handleMapToggle}
-        className="fixed bottom-10 bg-primary hover:bg-primary-dark rounded-full h-[2.5rem] min-w-[9rem] px-10 text-white text-xs font-bold"
+        className="fixed bottom-10 bg-primary hover:bg-primary-dark rounded-full h-[2.5rem] min-w-[9rem] px-10 text-white text-xs font-bold z-20"
       >
         {mapToggle ? '목록' : '지도로 보기'}
       </button>
