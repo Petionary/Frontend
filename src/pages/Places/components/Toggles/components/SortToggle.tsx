@@ -1,11 +1,21 @@
-const SortToggle = () => {
+import { ChangeEvent } from 'react';
+import { TPlaceParam } from '../../..';
+import SortItem from './SortItem';
+
+interface SortToggleProps {
+  params: TPlaceParam;
+  // eslint-disable-next-line no-unused-vars
+  handleParams: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+const SortToggle = ({ params, handleParams }: SortToggleProps) => {
   return (
     // 리덕스 스토에서 쿼리스트링 변경을 통해 정렬 옵션 반영
     <div className="flex justify-around w-[15rem] text-xs text-light">
-      <span className="px-2 cursor-pointer hover:text-dark">거리</span>
-      <span className="px-2 cursor-pointer hover:text-dark">리뷰</span>
-      <span className="px-2 cursor-pointer hover:text-dark">좋아요</span>
-      <span className="px-2 cursor-pointer hover:text-dark">업데이트</span>
+      <SortItem sort="update" checked={params.sort === 'update'} onChange={handleParams} />
+      <SortItem sort="review" checked={params.sort === 'review'} onChange={handleParams} />
+      <SortItem sort="distance" checked={params.sort === 'distance'} onChange={handleParams} />
+      <SortItem sort="heart" checked={params.sort === 'heart'} onChange={handleParams} />
     </div>
   );
 };

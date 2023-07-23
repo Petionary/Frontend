@@ -11,6 +11,8 @@ const placeParam = {
   region: '',
   district: '',
   category: '',
+  sort: 'update',
+  direction: 'asc',
 };
 
 export type TPlaceParam = typeof placeParam;
@@ -32,7 +34,12 @@ const Places = () => {
 
   return (
     <main className="flex flex-col items-center min-h-[90vh] mx-auto py-2 px-10 overflow-x-hidden">
-      <Toggles filterToggle={filterToggle} handleFilterToggle={handleFilterToggle} />
+      <Toggles
+        filterToggle={filterToggle}
+        handleFilterToggle={handleFilterToggle}
+        params={params}
+        handleParams={handleParams}
+      />
       <Filter
         filterToggle={filterToggle}
         params={params}
