@@ -6,10 +6,18 @@ aside::-webkit-scrollbar {
   display: none;
 }
 
+section::-webkit-scrollbar {
+  display: none;
+}
+
 .btn {
   @apply text-white p-2 font-bold h-[3rem];
 }
 
 .input {
-  @apply h-[2.5rem] px-5 my-1 border border-dark;
+  @apply h-[2.5rem] px-5 my-1 border text-xs border-dark;
+}
+
+body {
+  overflow-x: hidden;
 }
