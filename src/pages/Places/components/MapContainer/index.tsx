@@ -21,7 +21,6 @@ const MapContainer = () => {
     };
 
     const map = new kakao.maps.Map(container, options);
-    // eslint-disable-next-line no-unused-vars
     const zoomControl = new kakao.maps.ZoomControl();
     // zoom level control 추가
     map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
