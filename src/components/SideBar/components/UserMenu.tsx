@@ -1,12 +1,18 @@
-const UserMenu = () => {
-  const styles = 'my-1 p-2 cursor-pointer hover:font-bold text-light';
+import MenuItem from './MenuItem';
 
+const UserMenu = () => {
   return (
-    <div className="flex flex-col p-1 mx-auto text-center text-xs">
-      <span className={styles}>마이페이지</span>
-      <span className={styles}>쪽지</span>
-      <span className={styles}>로그아웃</span>
-    </div>
+    <ul className="flex flex-col p-1 mx-auto text-center text-xs">
+      <MenuItem type="user" to="/mypage">
+        마이페이지
+      </MenuItem>
+      <MenuItem type="user" to="/mypage">
+        쪽지
+      </MenuItem>
+      <MenuItem type="user" to="/mypage">
+        로그아웃
+      </MenuItem>
+    </ul>
   );
 };
 
