@@ -8,7 +8,6 @@ const SORTS: { [key: string]: string } = {
   review: '리뷰',
   heart: '좋아요',
   distance: '거리',
-  update: '최근',
 };
 
 const SortItem = ({ sort, ...rest }: SortItemProps) => {

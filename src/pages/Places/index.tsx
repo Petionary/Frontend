@@ -11,7 +11,7 @@ const placeParam = {
   region: '',
   district: '',
   category: '',
-  sort: 'update',
+  sort: 'distance',
   direction: 'asc',
 };
 
