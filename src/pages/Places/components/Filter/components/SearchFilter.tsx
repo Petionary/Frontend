@@ -1,4 +1,4 @@
-import Input from '../../../../../components/Input/Input';
+import Input from '../../../../../components/Input';
 import { ChangeEvent } from 'react';
 import { TPlaceParam } from '../../..';
 import FilterTitle from './FilterTitle';

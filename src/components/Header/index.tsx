@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import SideBar from '../SideBar/SideBar';
-import Input from '../Input/Input';
+import Input from '../Input';
 
 import Icons from './components/Icons';
 import HeaderLogo from './components/HeaderLogo';
