@@ -7,13 +7,13 @@ interface MenuItemProps extends ComponentPropsWithoutRef<'input'> {
 
 const TITLE = {
   history: '활동내역',
-  pet: '회원정보',
-  user: '반려동물정보',
+  pet: '반려동물정보',
+  user: '회원정보',
 };
 
 const MenuItem = ({ title, content, ...rest }: MenuItemProps) => {
   return (
-    <label className="p-2 border border-light w-[6rem]">
+    <label className="py-2 w-[5rem] mx-auto sm:mx-0 hover:text-dark">
       <input
         type="checkbox"
         name="content"
@@ -22,7 +22,7 @@ const MenuItem = ({ title, content, ...rest }: MenuItemProps) => {
         className="peer sr-only"
         {...rest}
       />
-      <span className="peer-checked:text-red">{TITLE[title]}</span>
+      <span className="peer-checked:text-primary-dark cursor-pointer">{TITLE[title]}</span>
     </label>
   );
 };
