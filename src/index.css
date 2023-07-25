@@ -11,7 +11,7 @@ section::-webkit-scrollbar {
 }
 
 .btn {
-  @apply text-white p-2 font-bold h-[3rem];
+  @apply text-white p-2 font-bold text-xs h-[2.5rem];
 }
 
 .input {

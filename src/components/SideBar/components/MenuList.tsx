@@ -1,12 +1,16 @@
 import MenuItem from './MenuItem';
 
-const MenuList = () => {
+interface MenuListProps {
+  handleMenuToggle: () => void;
+}
+
+const MenuList = ({ handleMenuToggle }: MenuListProps) => {
   return (
     <ul className="text-text text-sm">
-      <MenuItem type="page" to="/">
+      <MenuItem type="page" to="/" handleMenuToggle={handleMenuToggle}>
         HOME
       </MenuItem>
-      <MenuItem type="page" to="place">
+      <MenuItem type="page" to="place" handleMenuToggle={handleMenuToggle}>
         플레이스
       </MenuItem>
     </ul>

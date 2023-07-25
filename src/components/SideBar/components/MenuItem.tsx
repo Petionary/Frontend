@@ -2,18 +2,21 @@ import { ComponentPropsWithoutRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 interface MenuItemProps extends ComponentPropsWithoutRef<'li'> {
+  handleMenuToggle: () => void;
   type: 'page' | 'user';
   to: string;
 }
 
-const MenuItem = ({ children, type, to }: MenuItemProps) => {
+const MenuItem = ({ children, type, to, handleMenuToggle }: MenuItemProps) => {
   const nav = useNavigate();
-  const pageStyle =
-    'w-[80%] border border-transparent mx-auto my-1 px-2 text-center py-3 rounded-md hover:shadow-md hover:font-bold hover:border-gray-100';
-  const userStyle = 'my-1 p-2 cursor-pointer hover:font-bold text-light';
+  const style = type === 'page' ? 'w-full mx-auto text-center py-3 rounded-md' : 'text-light';
+  const handleNavigate = () => {
+    nav(to);
+    handleMenuToggle();
+  };
 
   return (
-    <li className={type === 'page' ? pageStyle : userStyle} onClick={() => nav(to)}>
+    <li className={`my-1 p-2 cursor-pointer hover:font-bold ${style}`} onClick={handleNavigate}>
       {children}
     </li>
   );

@@ -31,7 +31,7 @@ const Header = () => {
           />
         </section>
       </header>
-      <SideBar menuToggle={menuToggle} />
+      <SideBar menuToggle={menuToggle} handleMenuToggle={handleMenuToggle} />
     </>
   );
 };
