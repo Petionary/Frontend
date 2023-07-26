@@ -13,7 +13,7 @@ interface InputProps extends ComponentPropsWithoutRef<'input'> {
 }
 
 const INPUT_SIZE = {
-  sm: 'w-[10rem]',
+  sm: 'w-[15rem]',
   md: 'w-[20rem]',
   lg: 'w-[25rem]',
   full: '',
