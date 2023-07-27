@@ -1,30 +1,53 @@
+import { ChangeEvent } from 'react';
+import { TUser } from '..';
 import Input from '../../../../components/Input';
 import InfoTitle from './InfoTitle';
 
 interface BasicInfoProps {
   editToggle: boolean;
+  user: TUser;
+  // eslint-disable-next-line no-unused-vars
+  handleUserInputChange: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
 
-const BasicInfo = ({ editToggle }: BasicInfoProps) => {
+const BasicInfo = ({ editToggle, user, handleUserInputChange }: BasicInfoProps) => {
   return (
     <>
       <InfoTitle type="basic" />
       <div className="my-5 flex justify-between md:flex-col sm:flex-col w-full">
-        <div className="my-2 w-[10rem] h-[10rem] bg-red rounded-lg sm:mx-auto md:mx-auto">img</div>
+        <img className="my-2 w-[10rem] h-[10rem] sm:mx-auto md:mx-auto" alt="프로필이미지" />
         <div className="flex flex-col justify-between md:mx-auto sm:mx-auto w-[15rem] sm:w-full md:w-full">
-          <Input width="full" margin="my-2" disabled={!editToggle} value="이름" label="이름" />
-          <Input width="full" margin="my-2" disabled={!editToggle} value="별명" label="별명" />
+          <Input
+            width="full"
+            margin="my-2"
+            disabled={!editToggle}
+            value={user.name}
+            label="이름"
+            name="name"
+            onChange={handleUserInputChange}
+          />
+          <Input
+            width="full"
+            margin="my-2"
+            disabled={!editToggle}
+            value={user.nickName}
+            label="별명"
+            name="nickName"
+            onChange={handleUserInputChange}
+          />
         </div>
         <div className="flex flex-col justify-between md:mx-auto sm:mx-auto w-[15rem] sm:w-full md:w-full">
           <Input
             width="full"
             margin="my-2"
             disabled={!editToggle}
-            value="2023-07-26"
+            value={user.birthDate}
             label="생년월일"
             type="date"
+            name="birthDate"
+            onChange={handleUserInputChange}
           />
-          <Input width="full" margin="my-2" disabled value="남성" label="성별" />
+          <Input width="full" margin="my-2" disabled value={user.gender} label="성별" />
         </div>
       </div>
     </>
