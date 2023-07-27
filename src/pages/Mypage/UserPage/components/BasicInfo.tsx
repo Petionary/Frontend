@@ -20,7 +20,7 @@ const BasicInfo = ({ editToggle, user, handleUserInputChange }: BasicInfoProps) 
           <Input
             width="full"
             margin="my-2"
-            disabled={!editToggle}
+            disabled
             value={user.name}
             label="이름"
             name="name"
@@ -40,7 +40,7 @@ const BasicInfo = ({ editToggle, user, handleUserInputChange }: BasicInfoProps) 
           <Input
             width="full"
             margin="my-2"
-            disabled={!editToggle}
+            disabled
             value={user.birthDate}
             label="생년월일"
             type="date"

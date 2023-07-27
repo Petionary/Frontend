@@ -16,7 +16,7 @@ const ContactInfo = ({
   editToggle,
   user,
   handleUserInputChange,
-  setUserInput,
+  handleAddress,
 }: ContactInfoProps) => {
   return (
     <>
@@ -31,7 +31,7 @@ const ContactInfo = ({
           editToggle={editToggle}
           user={user}
           handleUserInputChange={handleUserInputChange}
-          setUserInput={setUserInput}
+          handleAddress={handleAddress}
         />
       </div>
     </>

@@ -1,8 +1,8 @@
-import { Address as TAddress, useDaumPostcodePopup } from 'react-daum-postcode';
 import Button from '../../../../../../components/Button';
 import Input from '../../../../../../components/Input';
 import { TUser } from '../../..';
 import { ChangeEvent } from 'react';
+import { Address as AddressType, useDaumPostcodePopup } from 'react-daum-postcode';
 
 interface AddressProps {
   editToggle: boolean;
@@ -15,7 +15,7 @@ interface AddressProps {
 const Address = ({ editToggle, user, setUserInput, handleUserInputChange }: AddressProps) => {
   const open = useDaumPostcodePopup();
 
-  const handleComplete = (data: TAddress) => {
+  const handleComplete = (data: AddressType) => {
     let address = data.address;
     let extraAddress = '';
     const postCode = data.zonecode;
@@ -31,13 +31,12 @@ const Address = ({ editToggle, user, setUserInput, handleUserInputChange }: Addr
     }
 
     setUserInput({ ...user, address: address, postcode: postCode });
-
-    console.log(address, postCode, data);
   };
 
-  const handleOpen = () => {
+  const handleAddress = () => {
     open({ onComplete: handleComplete });
   };
+
   return (
     <div>
       <div className="flex justify-between items-end w-[22rem] md:w-full sm:w-full">
@@ -55,7 +54,7 @@ const Address = ({ editToggle, user, setUserInput, handleUserInputChange }: Addr
           color="secondary"
           rounded={false}
           disabled={!editToggle}
-          onClick={handleOpen}
+          onClick={handleAddress}
         >
           검색
         </Button>
