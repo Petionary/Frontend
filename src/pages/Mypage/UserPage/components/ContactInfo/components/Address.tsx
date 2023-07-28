@@ -39,13 +39,14 @@ const Address = ({ editToggle, user, setUserInput, handleUserInputChange }: Addr
 
   return (
     <div>
-      <div className="flex justify-between items-end w-[22rem] md:w-full sm:w-full">
+      <div className="flex justify-between items-end w-[20rem] md:w-full sm:w-full">
         <Input
-          width="sm"
+          width="full"
           label="주소"
           margin="my-1"
           name="postcode"
           disabled
+          placeholder="우편번호"
           value={user.postcode}
         />
         <Button
@@ -59,13 +60,21 @@ const Address = ({ editToggle, user, setUserInput, handleUserInputChange }: Addr
           검색
         </Button>
       </div>
-      <Input width="full" margin="my-2" name="address" disabled value={user.address} />
+      <Input
+        width="full"
+        margin="my-2"
+        name="address"
+        disabled
+        placeholder="주소"
+        value={user.address}
+      />
       <Input
         width="full"
         margin="my-2"
         disabled={!editToggle}
         name="detailAddress"
         value={user.detailAddress}
+        placeholder="상새주소"
         onChange={handleUserInputChange}
       />
     </div>

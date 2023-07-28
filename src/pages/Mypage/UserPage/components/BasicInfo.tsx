@@ -19,7 +19,7 @@ const BasicInfo = ({ editToggle, user, handleUserInputChange }: BasicInfoProps) 
         <div className="flex flex-col justify-between md:mx-auto sm:mx-auto w-[15rem] sm:w-full md:w-full">
           <Input
             width="full"
-            margin="my-2"
+            margin="my-1"
             disabled
             value={user.name}
             label="이름"
@@ -28,7 +28,7 @@ const BasicInfo = ({ editToggle, user, handleUserInputChange }: BasicInfoProps) 
           />
           <Input
             width="full"
-            margin="my-2"
+            margin="my-1"
             disabled={!editToggle}
             value={user.nickName}
             label="별명"
@@ -39,7 +39,7 @@ const BasicInfo = ({ editToggle, user, handleUserInputChange }: BasicInfoProps) 
         <div className="flex flex-col justify-between md:mx-auto sm:mx-auto w-[15rem] sm:w-full md:w-full">
           <Input
             width="full"
-            margin="my-2"
+            margin="my-1"
             disabled
             value={user.birthDate}
             label="생년월일"

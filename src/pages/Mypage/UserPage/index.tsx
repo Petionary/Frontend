@@ -42,7 +42,7 @@ const UserPage = () => {
   };
 
   return (
-    <div className="sm:w-full w-[50vw] mx-auto flex flex-col items-center">
+    <>
       <BasicInfo
         editToggle={editToggle}
         user={userInput}
@@ -63,8 +63,10 @@ const UserPage = () => {
       ) : (
         <Button onClick={handleEditToggle}>회원정보수정</Button>
       )}
-    </div>
+    </>
   );
 };
 
 export default UserPage;
+
+// div className="sm:w-full w-[50vw] mx-auto flex flex-col items-center"

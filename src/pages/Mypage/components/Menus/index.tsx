@@ -9,7 +9,7 @@ interface MenusProps {
 
 const Menus = ({ content, handleMenu }: MenusProps) => {
   return (
-    <section className="text-sm text-light flex flex-col text-center w-[25rem] sm:w-full p-5 border-r h-[90vh] sm:h-[6rem] sm:border-none">
+    <section className="text-sm text-light flex flex-col text-center w-[15rem] sm:w-full p-5 border-r h-[90vh] sm:h-[6rem] sm:border-none">
       {/* <span className="text-md text-text py-2">마이페이지</span> */}
       <div className="flex flex-col w-full sm:flex-row sm:justify-center">
         <MenuItem title="user" onChange={handleMenu} content={content} />
