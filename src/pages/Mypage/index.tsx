@@ -16,9 +16,11 @@ const Mypage = () => {
   };
 
   return (
-    <main className="p-5 flex w-full justify-between min-h-[90vh] sm:flex-col mx-auto">
+    <main className="p-5 flex w-full min-h-[90vh] sm:flex-col mx-auto">
       <Menus content={input.content} handleMenu={handleInputChange} />
-      <section className="w-full py-3 px-10">{CONTENTS[input.content]}</section>
+      <section className="w-[60vw] py-3 px-10 sm:w-full mx-auto flex flex-col items-center">
+        {CONTENTS[input.content]}
+      </section>
     </main>
   );
 };

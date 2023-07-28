@@ -47,7 +47,7 @@ const BasicInfo = ({ editToggle, user, handleUserInputChange }: BasicInfoProps) 
             name="birthDate"
             onChange={handleUserInputChange}
           />
-          <Input width="full" margin="my-2" disabled value={user.gender} label="성별" />
+          <Input width="full" margin="my-1" disabled value={user.gender} label="성별" />
         </div>
       </div>
     </>
