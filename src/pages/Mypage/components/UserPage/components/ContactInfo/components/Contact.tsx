@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 import { TUser } from '../../..';
-import Input from '../../../../../../components/Input';
+import Input from '../../../../../../../components/Input';
 
 interface ContactProps {
   editToggle: boolean;

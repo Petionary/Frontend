@@ -1,5 +1,5 @@
-import Button from '../../../../../../components/Button';
-import Input from '../../../../../../components/Input';
+import Button from '../../../../../../../components/Button';
+import Input from '../../../../../../../components/Input';
 import { TUser } from '../../..';
 import { ChangeEvent } from 'react';
 import { Address as AddressType, useDaumPostcodePopup } from 'react-daum-postcode';

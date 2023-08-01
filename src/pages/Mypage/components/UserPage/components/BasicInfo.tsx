@@ -1,6 +1,6 @@
 import { ChangeEvent } from 'react';
 import { TUser } from '..';
-import Input from '../../../../components/Input';
+import Input from '../../../../../components/Input';
 import InfoTitle from './InfoTitle';
 
 interface BasicInfoProps {
