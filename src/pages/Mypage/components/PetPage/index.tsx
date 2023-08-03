@@ -1,6 +1,6 @@
-import Button from '../../../../components/Button';
 import useToggle from '../../../../hooks/useToggle';
 import AddPet from './components/AddPet';
+import AddPetModal from './components/AddPetModal';
 import Pet from './components/Pet';
 
 export const mock = {
@@ -19,17 +19,7 @@ const PetPage = () => {
         <Pet pet={mock} />
         <AddPet onClick={handleAddPetToggle} />
       </ul>
-      {addPetToggle && (
-        <dialog
-          className="absolute w-full h-full py-3 px-10 sm:w-full mx-auto flex flex-col items-center border rounded-md shadow-md"
-          open
-        >
-          <Button width="sm" onClick={handleAddPetToggle}>
-            X
-          </Button>
-          <div className="w-[10rem] h-[10rem] border">프로필 이미지</div>
-        </dialog>
-      )}
+      {addPetToggle && <AddPetModal />}
     </>
   );
 };

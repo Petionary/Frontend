@@ -10,12 +10,16 @@ section::-webkit-scrollbar {
   display: none;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .btn {
   @apply text-white p-2 font-bold text-xs h-[2.5rem];
 }
 
 .input {
-  @apply h-[2.5rem] px-5 my-1 border text-xs border-dark;
+  @apply h-[2.75rem] px-5 my-1 border text-xs border-dark;
 }
 
 body {
