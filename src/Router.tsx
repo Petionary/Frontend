@@ -3,6 +3,7 @@ import App from './App';
 import Places from './pages/Places';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Mypage from './pages/Mypage';
 
 const Router = () => {
   return (
@@ -11,6 +12,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/place" element={<Places />} />
+        <Route path="/mypage" element={<Mypage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

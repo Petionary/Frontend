@@ -13,7 +13,7 @@ interface InputProps extends ComponentPropsWithoutRef<'input'> {
 }
 
 const INPUT_SIZE = {
-  sm: 'w-[10rem]',
+  sm: 'w-[15rem]',
   md: 'w-[20rem]',
   lg: 'w-[25rem]',
   full: '',
@@ -36,7 +36,7 @@ const Input = ({
   const isInvalid = !inputValidation ? 'outline-red' : '';
 
   return (
-    <label className={`flex flex-col text-sm ${margin} ${position} `}>
+    <label className={`flex flex-col text-xs ${margin} ${position} `}>
       {label && (
         <div className={`text-text px-1 ${isBold}`}>
           {label} {required && <span className="text-red">*</span>}
