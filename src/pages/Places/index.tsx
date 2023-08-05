@@ -34,7 +34,7 @@ const Places = () => {
   }, [params.region]);
 
   return (
-    <main className="flex flex-col items-center min-h-[90vh] mx-auto py-2 overflow-x-hidden">
+    <main className="relative flex flex-col items-center min-h-[90vh] mx-auto overflow-x-hidden">
       <Toggles
         filterToggle={filterToggle}
         handleFilterToggle={handleFilterToggle}

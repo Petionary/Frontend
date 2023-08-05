@@ -13,7 +13,7 @@ interface TogglesProps {
 
 const Toggles = ({ filterToggle, handleFilterToggle, params, handleParams }: TogglesProps) => {
   return (
-    <section className="px-[10rem] flex justify-between items-center w-full h-[6.125rem] relative">
+    <section className="px-[5rem] flex justify-between items-center w-full h-[6.125rem] relative z-20 bg-white">
       <SortToggle params={params} handleParams={handleParams} />
       <FilterToggle filterToggle={filterToggle} handleFilterToggle={handleFilterToggle} />
     </section>

@@ -20,7 +20,7 @@ const CategoryFilter = ({ params, setParams, handleParams }: CategoryFilterProps
   return (
     <div className="text-xs">
       <FilterTitle filter="카테고리" resetFilter={resetCategory} />
-      <div className="p-2 my-2 grid grid-cols-5 overflow-hidden">
+      <div className="p-2 my-2 grid grid-cols-4 overflow-hidden">
         {CATEGORIES.map(category => (
           <CategoryItem
             key={category}
