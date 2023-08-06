@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex justify-between items-center w-full pl-[21.31rem] pr-[20.25rem] h-[6.25rem] sm:px-10">
+      <header className="flex justify-between items-center w-full pl-[21.31rem] pr-[20.25rem] h-[6.25rem] sm:px-10 border-b border-gray-40">
         <LogoBanner onClick={() => nav('/')} className="w-[8rem] cursor-pointer" />
         <div className="flex w-[30rem] justify-between items-center sm:hidden">
           <NavBar pathname={pathname} navHome={() => nav('/')} navPlace={() => nav('place')} />

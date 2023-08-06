@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-aside::-webkit-scrollbar {
-  display: none;
-}
-
-section::-webkit-scrollbar {
-  display: none;
-}
-
-body::-webkit-scrollbar {
-  display: none;
-}
-
 .btn {
   @apply text-white p-2 font-bold text-xs h-[2.5rem];
 }
@@ -24,4 +12,8 @@ body::-webkit-scrollbar {
 
 body {
   overflow-x: hidden;
+}
+
+*::-webkit-scrollbar {
+  display: none;
 }
