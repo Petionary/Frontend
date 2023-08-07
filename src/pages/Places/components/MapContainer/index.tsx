@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import SearchInput from '../SearchInput';
 
 declare global {
   // eslint-disable-next-line no-unused-vars
@@ -28,7 +29,20 @@ const MapContainer = () => {
     kakao.maps.event.addListener(map, 'mousedown', () => map.setDraggable(true));
   }, []);
 
-  return <section id="map" className="w-full h-[82vh] rounded-md overflow-hidden" />;
+  return (
+    <section
+      id="map"
+      className="relative z-5 w-full h-[82vh] rounded-md overflow-hidden pt-[1.25rem] pb-[3rem] flex flex-col justify-between items-center"
+    >
+      <SearchInput />
+      <div className="flex items-end z-10 h-[16em] w-full">
+        <div className="w-[33.75rem] h-[13.75rem] mx-[0.75rem] bg-gray-20"></div>
+        <div className="w-[33.75rem] h-[13.75rem] mx-[0.75rem] bg-gray-20"></div>
+        <div className="w-[33.75rem] h-[13.75rem] mx-[0.75rem] bg-gray-20"></div>
+        <div className="w-[33.75rem] h-[13.75rem] mx-[0.75rem] bg-gray-20"></div>
+      </div>
+    </section>
+  );
 };
 
 export default MapContainer;

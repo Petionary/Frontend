@@ -18,7 +18,7 @@ const Filter = ({ filterToggle, params, handleParams, resetParams, setParams }: 
 
   return (
     <aside
-      className={`flex flex-col justify-between duration-500 w-[21.5rem] rounded-bl-[7.5rem] border p-8 h-[27.625rem] bg-[#fff] shadow-lg top-8 right-[5.25rem] absolute translate-y-10 ${open} z-10`}
+      className={`flex flex-col justify-between duration-500 w-[21.5rem] rounded-bl-[7.5rem] border p-8 h-[27.625rem] bg-[#fff] shadow-lg top-8 right-[15rem] absolute translate-y-10 ${open} z-10`}
     >
       <CategoryFilter params={params} setParams={setParams} handleParams={handleParams} />
       {/* <SearchFilter params={params} setParams={setParams} handleParams={handleParams} /> */}
