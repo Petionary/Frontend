@@ -38,12 +38,14 @@ const Places = () => {
 
   return (
     <main className="relative flex flex-col items-center min-h-[90vh] mx-auto overflow-x-hidden">
-      <ToolBar
-        filterToggle={filterToggle}
-        handleFilterToggle={handleFilterToggle}
-        params={params}
-        handleParams={handleParams}
-      />
+      {!mapToggle && (
+        <ToolBar
+          filterToggle={filterToggle}
+          handleFilterToggle={handleFilterToggle}
+          params={params}
+          handleParams={handleParams}
+        />
+      )}
       <Filter
         filterToggle={filterToggle}
         params={params}
@@ -60,16 +62,13 @@ const Places = () => {
           <PlaceList />
         </>
       )}
-      {mapToggle ? (
-        <ListIcon onClick={handleMapToggle} className="fixed bottom-10 z-20" />
-      ) : (
-        <button
-          onClick={handleMapToggle}
-          className="fixed bottom-10 bg-primary hover:bg-primary-dark rounded-full p-2 text-white text-xs font-bold z-20"
-        >
-          <MapIcon />
-        </button>
-      )}
+
+      <button
+        onClick={handleMapToggle}
+        className="fixed bottom-[1.5rem] right-[20.25rem] bg-primary hover:bg-primary-dark rounded-full p-2 text-white text-xs font-bold z-20"
+      >
+        {mapToggle ? <ListIcon /> : <MapIcon />}
+      </button>
     </main>
   );
 };

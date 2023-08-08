@@ -17,9 +17,7 @@ const Filter = ({ filterToggle, params, handleParams, resetParams, setParams }: 
   const open = filterToggle ? 'lg:-translate-y-[115%] -translate-x-0' : 'translate-y-[15%]';
 
   return (
-    <aside
-      className={`flex flex-col justify-between duration-500 w-[21.5rem] rounded-bl-[7.5rem] border p-8 h-[27.625rem] bg-[#fff] shadow-lg top-8 right-[15rem] absolute translate-y-10 ${open} z-10`}
-    >
+    <aside className="flex flex-col justify-between duration-500 w-[21.5rem] rounded-bl-[7.5rem] border-x p-8 h-[27.625rem] bg-[#fff] shadow-lg right-[19.375rem] top-0 hover:opacity-100 absolute z-10">
       <CategoryFilter params={params} setParams={setParams} handleParams={handleParams} />
       {/* <SearchFilter params={params} setParams={setParams} handleParams={handleParams} /> */}
       <AddressFilter params={params} setParams={setParams} handleParams={handleParams} />

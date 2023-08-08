@@ -32,7 +32,7 @@ const MapContainer = () => {
   return (
     <section
       id="map"
-      className="relative z-5 w-full h-[82vh] rounded-md overflow-hidden pt-[1.25rem] pb-[3rem] flex flex-col justify-between items-center"
+      className="relative w-full z-10 h-[90vh] rounded-md overflow-hidden pt-[1.25rem] pb-[3rem] flex flex-col justify-between items-center"
     >
       <SearchInput />
       <div className="flex items-end z-10 h-[16em] w-full">
