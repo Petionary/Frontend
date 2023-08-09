@@ -14,7 +14,7 @@ const Router = () => {
         <Route path="/place" element={<Places />} />
         <Route path="/mypage" element={<Mypage />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 };

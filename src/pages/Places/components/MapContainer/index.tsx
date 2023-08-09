@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 import SearchInput from '../SearchInput';
 
+import useToggle from '../../../../hooks/useToggle';
+import MapPlace from './components/MapPlace';
+
 declare global {
   // eslint-disable-next-line no-unused-vars
   interface Window {
@@ -10,6 +13,7 @@ declare global {
 
 const MapContainer = () => {
   const { kakao } = window;
+  const [mapPlaceToggle, handleMapPlaceToggle] = useToggle();
 
   useEffect(() => {
     let container = document.getElementById('map');
@@ -32,15 +36,10 @@ const MapContainer = () => {
   return (
     <section
       id="map"
-      className="relative w-full z-10 h-[90vh] rounded-md overflow-hidden pt-[1.25rem] pb-[3rem] flex flex-col justify-between items-center"
+      className="relative w-full z-10 h-[90vh] rounded-md overflow-hidden pt-[1.25rem] flex flex-col justify-between items-center duration-500"
     >
       <SearchInput />
-      <div className="flex items-end z-10 h-[16em] w-full">
-        <div className="w-[33.75rem] h-[13.75rem] mx-[0.75rem] bg-gray-20"></div>
-        <div className="w-[33.75rem] h-[13.75rem] mx-[0.75rem] bg-gray-20"></div>
-        <div className="w-[33.75rem] h-[13.75rem] mx-[0.75rem] bg-gray-20"></div>
-        <div className="w-[33.75rem] h-[13.75rem] mx-[0.75rem] bg-gray-20"></div>
-      </div>
+      <MapPlace mapPlaceToggle={mapPlaceToggle} handleMapPlaceToggle={handleMapPlaceToggle} />
     </section>
   );
 };

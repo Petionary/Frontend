@@ -4,9 +4,8 @@ import useToggle from '../../hooks/useToggle';
 import Filter from './components/Filter';
 import PlaceList from './components/PlaceList';
 import MapContainer from './components/MapContainer';
-import { ReactComponent as Search } from '../../assets/Search.svg';
 import { ReactComponent as MapIcon } from '../../assets/bx_map.svg';
-import { ReactComponent as ListIcon } from '../../assets/fab.svg';
+import { ReactComponent as ListIcon } from '../../assets/List.svg';
 import ToolBar from './components/ToolBar';
 import Recommend from './components/Recommend';
 
@@ -65,9 +64,9 @@ const Places = () => {
 
       <button
         onClick={handleMapToggle}
-        className="fixed bottom-[1.5rem] right-[20.25rem] bg-primary hover:bg-primary-dark rounded-full p-2 text-white text-xs font-bold z-20"
+        className="fixed bottom-[1.5rem] right-[20.25rem]  bg-primary hover:bg-primary-dark rounded-full w-[6.25rem] h-[6.25rem] text-white text-xs font-bold z-20"
       >
-        {mapToggle ? <ListIcon /> : <MapIcon />}
+        {mapToggle ? <ListIcon className="mx-auto" /> : <MapIcon className="mx-auto" />}
       </button>
     </main>
   );
