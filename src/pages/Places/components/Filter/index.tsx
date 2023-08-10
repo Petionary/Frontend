@@ -14,12 +14,13 @@ interface Props {
 }
 
 const Filter = ({ filterToggle, params, handleParams, resetParams, setParams }: Props) => {
-  const open = filterToggle ? 'lg:-translate-y-[115%] -translate-x-0' : 'translate-y-[15%]';
+  const open = filterToggle ? 'sm:translate-x-[21.5rem]' : 'sm:-translate-[21.5rem]';
 
   return (
-    <aside className="flex flex-col justify-between duration-500 w-[21.5rem] rounded-bl-[7.5rem] border-x p-8 h-[27.625rem] bg-[#fff] shadow-lg right-[19.375rem] top-0 hover:opacity-100 absolute z-10">
+    <aside
+      className={`flex flex-col justify-between duration-500 w-[21.5rem] rounded-bl-[7.5rem] border-x p-8 h-[27.625rem] bg-[#fff] shadow-lg right-[19.375rem] top-0 hover:opacity-100 absolute z-10 ${open} sm:right-0`}
+    >
       <CategoryFilter params={params} setParams={setParams} handleParams={handleParams} />
-      {/* <SearchFilter params={params} setParams={setParams} handleParams={handleParams} /> */}
       <AddressFilter params={params} setParams={setParams} handleParams={handleParams} />
       <Reset resetParams={resetParams} />
     </aside>

@@ -2,7 +2,7 @@ import Item from '../PlaceList/components/Item';
 
 const Recommend = () => {
   return (
-    <section className="relative w-full z-5">
+    <section className="relative w-full z-5 sm:hidden">
       <section className="flex flex-col w-full h-[24.125rem] pt-[7.5rem] px-[20rem] bg-white">
         <div className="flex flex-col">
           <span className="text-[2.625rem] text-gray-90">BEST PLACE</span>

@@ -45,14 +45,13 @@ const Places = () => {
           handleParams={handleParams}
         />
       )}
-      <Filter
+      {/* <Filter
         filterToggle={filterToggle}
         params={params}
         resetParams={resetParams}
         setParams={setParams}
         handleParams={handleParams}
-      />
-
+      /> */}
       {mapToggle ? (
         <MapContainer />
       ) : (
