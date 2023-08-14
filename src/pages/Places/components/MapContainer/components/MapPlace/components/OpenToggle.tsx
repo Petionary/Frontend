@@ -13,7 +13,7 @@ const OpenToggle = ({ mapPlaceToggle, handleMapPlaceToggle }: OpenToggleProps) =
       }`}
       onClick={handleMapPlaceToggle}
     >
-      <Arrow />
+      <Arrow className="stroke-[#666666]" />
     </span>
   );
 };
