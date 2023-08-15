@@ -1,5 +1,3 @@
-import { ReactComponent as ResetIcon } from '../../../../../assets/reset.svg';
-
 interface ResetProps {
   resetParams: () => void;
 }

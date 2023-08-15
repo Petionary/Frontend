@@ -2,7 +2,6 @@ import { ChangeEvent } from 'react';
 import { TPlaceParam } from '../..';
 import FilterToggle from './components/FilterToggle';
 import SortToggle from './components/SortToggle';
-import { ReactComponent as Search } from '../../../../assets/Search.svg';
 import SearchInput from '../SearchInput';
 
 interface TogglesProps {
