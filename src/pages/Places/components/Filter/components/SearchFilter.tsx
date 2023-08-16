@@ -16,7 +16,7 @@ const SearchFilter = ({ params, setParams, handleParams }: SearchFilterProps) =>
   };
   return (
     <div className="text-xs">
-      <FilterTitle filter="검색" resetFilter={resetSearch} />
+      <FilterTitle filter="Search" resetFilter={resetSearch} />
       <div className="relative z-0 my-2 p-2">
         <Input
           width="full"

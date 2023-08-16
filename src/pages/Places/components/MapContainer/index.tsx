@@ -1,4 +1,8 @@
 import { useEffect } from 'react';
+import SearchInput from '../SearchInput';
+
+import useToggle from '../../../../hooks/useToggle';
+import MapPlace from './components/MapPlace';
 
 declare global {
   // eslint-disable-next-line no-unused-vars
@@ -9,6 +13,7 @@ declare global {
 
 const MapContainer = () => {
   const { kakao } = window;
+  const [mapPlaceToggle, handleMapPlaceToggle] = useToggle();
 
   useEffect(() => {
     let container = document.getElementById('map');
@@ -28,7 +33,15 @@ const MapContainer = () => {
     kakao.maps.event.addListener(map, 'mousedown', () => map.setDraggable(true));
   }, []);
 
-  return <section id="map" className="w-full h-[82vh] rounded-md overflow-hidden" />;
+  return (
+    <section
+      id="map"
+      className="relative w-full z-10 h-[90vh] rounded-md overflow-hidden pt-[1.25rem] flex flex-col justify-between items-center duration-500"
+    >
+      <SearchInput />
+      <MapPlace mapPlaceToggle={mapPlaceToggle} handleMapPlaceToggle={handleMapPlaceToggle} />
+    </section>
+  );
 };
 
 export default MapContainer;

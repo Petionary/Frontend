@@ -1,5 +1,5 @@
-import { ReactComponent as MenuToggle } from '../../../../../assets/MenuToggle.svg';
-import { ReactComponent as BackIcon } from '../../../../../assets/BackIcon.svg';
+import { ReactComponent as MenuToggle } from '../../../assets/MenuToggle.svg';
+import { ReactComponent as BackIcon } from '../../../assets/BackIcon.svg';
 import { ComponentPropsWithRef } from 'react';
 
 interface HeaderMenuToggleProps extends ComponentPropsWithRef<'div'> {
@@ -14,7 +14,6 @@ const HeaderMenuToggle = ({ menuToggle, ...rest }: HeaderMenuToggleProps) => {
       ) : (
         <MenuToggle className="cursor-pointer stroke-light hover:stroke-dark" />
       )}
-      <span>카테고리</span>
     </div>
   );
 };

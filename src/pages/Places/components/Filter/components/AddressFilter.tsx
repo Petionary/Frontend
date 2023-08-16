@@ -15,7 +15,7 @@ const AddressFilter = ({ params, handleParams, setParams }: AddressFilterProps) 
 
   return (
     <div className="text-xs flex flex-col">
-      <FilterTitle filter="주소검색" resetFilter={resetAddress} />
+      <FilterTitle filter="Search" resetFilter={resetAddress} />
       <SelectAddress params={params} handleParams={handleParams} />
     </div>
   );
