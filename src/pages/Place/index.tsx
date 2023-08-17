@@ -19,7 +19,7 @@ const placeParam = {
 
 export type TPlaceParam = typeof placeParam;
 
-const Places = () => {
+const Place = () => {
   const [filterToggle, handleFilterToggle] = useToggle();
   const [mapToggle, handleMapToggle] = useToggle();
 
@@ -63,4 +63,4 @@ const Places = () => {
   );
 };
 
-export default Places;
+export default Place;
