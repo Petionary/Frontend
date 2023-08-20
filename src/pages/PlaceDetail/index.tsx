@@ -11,6 +11,9 @@ const mockPlace = {
   contact: '010-1234-5678',
   images: [
     // 이미지 src(string) 배열
+    '',
+    '',
+    '',
   ],
   rate: 4.5,
   reviews: [
@@ -44,10 +47,12 @@ const mockPlace = {
   ],
 };
 
+export type Tmock = typeof mockPlace;
+
 const PlaceDetail = () => {
   return (
     <main className="flex flex-col items-center">
-      <DetailContainer />
+      <DetailContainer place={mockPlace} />
       <MapContainer />
       <ReviewContainer />
     </main>

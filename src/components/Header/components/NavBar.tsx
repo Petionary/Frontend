@@ -17,7 +17,7 @@ const NavBar = ({ pathname, navHome, navPlace }: NavBarProps) => {
       </span>
       <span
         className={`cursor-pointer border-b hover:border-gray-100 p-2 ${
-          pathname === '/place' ? 'border-gray-100' : 'border-white'
+          pathname.split('/')[1] === 'place' ? 'border-gray-100' : 'border-white'
         }`}
         onClick={navPlace}
       >

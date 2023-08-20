@@ -1,11 +1,11 @@
 import { ComponentPropsWithoutRef, useState } from 'react';
 import ImagePage from './ImagePage';
 
-// img src의 배열을 prop으로 전달
+interface PlaceImageProps extends ComponentPropsWithoutRef<'img'> {
+  images: string[];
+}
 
-const mockImgs = ['', '', ''];
-
-const PlaceImage = ({ ...rest }: ComponentPropsWithoutRef<'img'>) => {
+const PlaceImage = ({ images, ...rest }: PlaceImageProps) => {
   const [page, setPage] = useState(0);
 
   const handlePrev = () => {
@@ -18,11 +18,11 @@ const PlaceImage = ({ ...rest }: ComponentPropsWithoutRef<'img'>) => {
 
   return (
     <section className="relative w-[37.5rem] flex overflow-hidden">
-      {mockImgs.map(el => {
+      {images?.map(el => {
         return (
           <img
             {...rest}
-            alt="1"
+            alt="image"
             key={el}
             src={el}
             className={`min-w-[37.5rem] h-[18.75rem] rounded-[0.25rem] bg-gray-20 duration-500 -translate-x-[${
@@ -33,7 +33,7 @@ const PlaceImage = ({ ...rest }: ComponentPropsWithoutRef<'img'>) => {
       })}
       <ImagePage
         page={page}
-        length={mockImgs.length}
+        length={images?.length}
         handleNext={handleNext}
         handlePrev={handlePrev}
       />
