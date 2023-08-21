@@ -1,55 +1,39 @@
 import { ComponentPropsWithoutRef } from 'react';
 
 interface InputProps extends ComponentPropsWithoutRef<'input'> {
-  label?: string;
-  width?: 'sm' | 'md' | 'lg' | 'full'; // default = 'md'
-  position?: 'relative' | 'fixed' | 'absolute'; // default = 'relative'
-  rounded?: boolean; // default = false
-  margin?: string; // default = 'm-0'
-  guideLine?: string;
-  bold?: boolean;
-  inputValidation?: boolean;
-  required?: boolean;
+  label?: string | undefined;
+  isValid?: boolean | undefined;
+  width?: 'sm' | 'md' | 'lg';
+  guide?: string | undefined;
 }
 
-const INPUT_SIZE = {
+const WIDTH = {
   sm: 'w-[15rem]',
-  md: 'w-[20rem]',
-  lg: 'w-[25rem]',
-  full: '',
+  md: 'w-[21.375rem]',
+  lg: 'w-[36.25rem]',
 };
 
-const Input = ({
-  label,
-  width = 'md',
-  margin = 'm-0',
-  position = 'relative',
-  guideLine,
-  rounded = false,
-  bold = false,
-  inputValidation = true,
-  required = false,
-  ...rest
-}: InputProps) => {
-  const isBold = bold ? 'font-bold' : '';
-  const isRounded = rounded ? 'rounded-full' : 'rounded-md';
-  const isInvalid = !inputValidation ? 'outline-red' : '';
+//
+
+const Input = ({ label, isValid, guide, width = 'md', ...rest }: InputProps) => {
+  const height = label ? 'h-[2.75rem]' : 'h-[3.75rem]';
+  const color =
+    isValid === undefined
+      ? 'border-gray-40'
+      : isValid
+      ? 'text-primary border-primary'
+      : 'text-red border-red';
 
   return (
-    <label className={`flex flex-col text-xs ${margin} ${position} `}>
-      {label && (
-        <div className={`text-text px-1 ${isBold}`}>
-          {label} {required && <span className="text-red">*</span>}
-        </div>
-      )}
+    <label>
+      {label && <p className="text-[0.9375rem] text-gray-90">{label}</p>}
       <input
-        className={`input ${isRounded} ${INPUT_SIZE[width]} ${isInvalid}`}
-        placeholder={rest.placeholder ? rest.placeholder : '내용을 입력해주세요.'}
+        className={`border-b-2 font-[400] px-[0.75rem] outline-none placeholder::text-[1.125rem] disabled:text-gray-40 distabled:border-gray-40 bg-inherit ${height} ${WIDTH[width]} ${color}`}
         {...rest}
       />
-      {guideLine && (
-        <p className={`text-xs px-1 ${!inputValidation ? 'text-red-light' : 'text-light'}`}>
-          {guideLine}
+      {!isValid && (
+        <p className="px-[0.75rem] text-[0.75rem] text-gray-50 h-[1.4375rem] leading-[1.5rem]">
+          {guide}
         </p>
       )}
     </label>
