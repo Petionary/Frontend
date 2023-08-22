@@ -1,6 +1,7 @@
 import { ComponentPropsWithoutRef } from 'react';
 
 interface InputProps extends ComponentPropsWithoutRef<'input'> {
+  value: string;
   label?: string | undefined;
   isValid?: boolean | undefined;
   width?: 'sm' | 'md' | 'lg';
@@ -15,10 +16,10 @@ const WIDTH = {
 
 //
 
-const Input = ({ label, isValid, guide, width = 'md', ...rest }: InputProps) => {
+const Input = ({ label, isValid, guide, width = 'md', value, ...rest }: InputProps) => {
   const height = label ? 'h-[2.75rem]' : 'h-[3.75rem]';
   const color =
-    isValid === undefined
+    value?.length === 0
       ? 'border-gray-40'
       : isValid
       ? 'text-primary border-primary'
@@ -26,12 +27,17 @@ const Input = ({ label, isValid, guide, width = 'md', ...rest }: InputProps) => 
 
   return (
     <label>
-      {label && <p className="text-[0.9375rem] text-gray-90">{label}</p>}
+      {label && (
+        <p className={`text-[0.9375rem] ${rest.disabled ? 'text-gray-40' : 'text-gray-90'}`}>
+          {label}
+        </p>
+      )}
       <input
+        value={value}
         className={`border-b-2 font-[400] px-[0.75rem] outline-none placeholder::text-[1.125rem] disabled:text-gray-40 distabled:border-gray-40 bg-inherit ${height} ${WIDTH[width]} ${color}`}
         {...rest}
       />
-      {!isValid && (
+      {!isValid && value.length > 0 && guide && (
         <p className="px-[0.75rem] text-[0.75rem] text-gray-50 h-[1.4375rem] leading-[1.5rem]">
           {guide}
         </p>
