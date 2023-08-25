@@ -1,10 +1,20 @@
 import { ComponentPropsWithoutRef } from 'react';
 
-interface DropdownProps extends ComponentPropsWithoutRef<'select'> {}
+interface DropdownProps extends ComponentPropsWithoutRef<'select'> {
+  width?: 'sm' | 'lg';
+}
 
-const Dropdown = ({ children, ...rest }: DropdownProps) => {
+const WIDTH = {
+  sm: 'w-[6.75rem]',
+  lg: 'w-[10.8125rem]',
+};
+
+const Dropdown = ({ width = 'lg', children, ...rest }: DropdownProps) => {
   return (
-    <select className="w-[10rem] text-xs px-2 m-2 h-[2rem] border rounded-md border-dark" {...rest}>
+    <select
+      className={`${WIDTH[width]} h-[2.375rem] text-[0.9375rem] rounded-[1.88rem] bg-gray-20 px-[0.75rem]`}
+      {...rest}
+    >
       {children}
     </select>
   );

@@ -17,3 +17,10 @@ body {
 *::-webkit-scrollbar {
   display: none;
 }
+
+select {
+  background: url('assets/dropdown_button.svg') no-repeat 90% 50%;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
