@@ -1,11 +1,16 @@
-import Input from '../Input';
 import useInput from '../../hooks/useInput';
 import Button from '../Button';
 import { useState } from 'react';
 import UserInfoTitle from './components/UserInfoTitle';
+import UserInfoInput from './components/UserInfoInput';
+
+interface UserInfo {
+  nickname: string;
+  places: string[];
+}
 
 const Register = () => {
-  const { input, handleInputChange } = useInput({ nickname: '', places: [] });
+  const { input, handleInputChange, setInput } = useInput<UserInfo>({ nickname: '', places: [] });
   const [step, setStep] = useState(0);
 
   const handlePrevStep = () => {
@@ -30,19 +35,21 @@ const Register = () => {
       {/* 별명 입력 */}
       <section className="flex flex-col justify-between items-center w-[25rem] h-full z-10 bg-white pt-[3.75rem] pb-[2.62rem]">
         <UserInfoTitle step={step} />
-        <Input
-          label="닉네임"
-          width="sm"
-          name="nickname"
-          value={input.nickname}
-          onChange={handleInputChange}
-          isValid={input.nickname?.length > 0}
+        <UserInfoInput
+          step={step}
+          userInfo={input}
+          handleInputChange={handleInputChange}
+          handleSetPlace={setInput}
         />
         <div className="w-full px-[5rem] flex justify-between">
           <Button onClick={handlePrevStep} disabled={step === 0}>
             Back
           </Button>
-          <Button cta onClick={handleNextStep}>
+          <Button
+            cta
+            onClick={handleNextStep}
+            disabled={step === 0 && input?.nickname?.length === 0}
+          >
             Next
           </Button>
         </div>
