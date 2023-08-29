@@ -1,11 +1,11 @@
 import PlaceChip from './PlaceChip';
 
-interface PlaceListProps {
+interface SelectedPlaceProps {
   userInfo: { nickname: string; places: string[] };
   handleSetPlace: React.Dispatch<React.SetStateAction<{ nickname: string; places: string[] }>>;
 }
 
-const PlaceList = ({ userInfo, handleSetPlace }: PlaceListProps) => {
+const SelectedPlace = ({ userInfo, handleSetPlace }: SelectedPlaceProps) => {
   return (
     <div className="mt-[4.45rem]">
       {userInfo?.places?.map(place => (
@@ -15,4 +15,4 @@ const PlaceList = ({ userInfo, handleSetPlace }: PlaceListProps) => {
   );
 };
 
-export default PlaceList;
+export default SelectedPlace;

@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
 import useInput from '../../../../../../hooks/useInput';
-import PlaceInput from './components/PlaceInput';
-import PlaceList from './components/PlaceList';
 
-interface PlaceInfoProps {
+import SelectedPlace from './components/SelectedPlace';
+import PlaceDropDown from './components/PlaceDropDown';
+
+interface PlaceStepProps {
   userInfo: { nickname: string; places: string[] };
   handleSetPlace: React.Dispatch<React.SetStateAction<{ nickname: string; places: string[] }>>;
 }
 
-const PlaceInfo = ({ userInfo, handleSetPlace }: PlaceInfoProps) => {
+const PlaceStep = ({ userInfo, handleSetPlace }: PlaceStepProps) => {
   const { input, handleInputChange, setInput } = useInput({ region: '', district: '' });
 
   useEffect(() => {
@@ -25,10 +26,10 @@ const PlaceInfo = ({ userInfo, handleSetPlace }: PlaceInfoProps) => {
 
   return (
     <div className="w-full h-[26.375rem] pl-[3.63rem] pr-[3.06rem]">
-      <PlaceInput input={input} handleInputChange={handleInputChange} />
-      <PlaceList userInfo={userInfo} handleSetPlace={handleSetPlace} />
+      <PlaceDropDown input={input} onChangePlaceDropDown={handleInputChange} />
+      <SelectedPlace userInfo={userInfo} handleSetPlace={handleSetPlace} />
     </div>
   );
 };
 
-export default PlaceInfo;
+export default PlaceStep;

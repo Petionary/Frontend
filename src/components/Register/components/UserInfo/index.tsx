@@ -1,8 +1,9 @@
 import { ChangeEvent } from 'react';
-import Input from '../../../Input';
-import PlaceInfo from './components/PlaceInfo.tsx';
+import Input from '../../../Input/index.tsx';
+import PlaceStep from './components/PlaceStep/index.tsx';
+import PetStep from './components/PetStep/index.tsx';
 
-interface UserInfoInputProps {
+interface UserInfoProps {
   step: number;
   // eslint-disable-next-line no-unused-vars
   handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -10,12 +11,7 @@ interface UserInfoInputProps {
   userInfo: { nickname: string; places: string[] };
 }
 
-const UserInfoInput = ({
-  userInfo,
-  handleInputChange,
-  step,
-  handleSetPlace,
-}: UserInfoInputProps) => {
+const UserInfo = ({ userInfo, handleInputChange, step, handleSetPlace }: UserInfoProps) => {
   if (step === 0)
     return (
       <Input
@@ -27,7 +23,8 @@ const UserInfoInput = ({
         isValid={userInfo?.nickname?.length > 0}
       />
     );
-  else if (step === 1) return <PlaceInfo userInfo={userInfo} handleSetPlace={handleSetPlace} />;
+  if (step === 1) return <PlaceStep userInfo={userInfo} handleSetPlace={handleSetPlace} />;
+  if (step === 2) return <PetStep />;
 };
 
-export default UserInfoInput;
+export default UserInfo;
