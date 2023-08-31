@@ -1,12 +1,12 @@
 import { ReactComponent as UserIcon } from '../../../assets/UserIcon.svg';
 import { ReactComponent as LogoutIcon } from '../../../assets/LogoutIcon.svg';
 
-interface IconsProps {
+interface AfterLoginProps {
   navMypage: () => void;
   handleLogout: () => void;
 }
 
-const Icons = ({ navMypage, handleLogout }: IconsProps) => {
+const AfterLogin = ({ navMypage, handleLogout }: AfterLoginProps) => {
   return (
     <div className="flex items-center justify-between">
       <span className="p-2" onClick={navMypage}>
@@ -19,4 +19,4 @@ const Icons = ({ navMypage, handleLogout }: IconsProps) => {
   );
 };
 
-export default Icons;
+export default AfterLogin;
