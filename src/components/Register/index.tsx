@@ -1,8 +1,8 @@
 import useInput from '../../hooks/useInput';
-import Button from '../Button';
 import { useState } from 'react';
-import UserInfoTitle from './components/UserInfoTitle';
-import UserInfoInput from './components/UserInfoInput';
+import Title from './components/Title';
+import UserInfo from './components/UserInfo';
+import RegisterButton from './components/RegisterButton';
 
 interface UserInfo {
   nickname: string;
@@ -22,39 +22,42 @@ const Register = () => {
   };
 
   return (
-    <dialog
-      open
-      className="w-[50.8125rem] h-[46.875rem] p-0 flex overflow-hidden top-[10.31rem] border"
-    >
-      {/* 배경 이미지 */}
-      <section className="flex w-[25.8125rem] h-full overflow-hidden">
-        <img src="" alt="background image" className="absolute w-[60.1875rem] h-[46.9rem] bg-red" />
-        {/* process */}
-      </section>
-      {/* 1. 별명 입력 -> 2. 장소 추가 -> 3. 반려동물 프로필 등록 */}
-      {/* 별명 입력 */}
-      <section className="flex flex-col justify-between items-center w-[25rem] h-full z-10 bg-white pt-[3.75rem] pb-[2.62rem]">
-        <UserInfoTitle step={step} />
-        <UserInfoInput
-          step={step}
-          userInfo={input}
-          handleInputChange={handleInputChange}
-          handleSetPlace={setInput}
-        />
-        <div className="w-full px-[5rem] flex justify-between">
-          <Button onClick={handlePrevStep} disabled={step === 0}>
-            Back
-          </Button>
-          <Button
-            cta
-            onClick={handleNextStep}
-            disabled={step === 0 && input?.nickname?.length === 0}
-          >
-            Next
-          </Button>
-        </div>
-      </section>
-    </dialog>
+    <>
+      <div className="absolute top-0 bg-gray-90 w-full h-[150vh] opacity-40 z-30" />
+      <dialog
+        open
+        className="w-[50.8125rem] h-[46.875rem] p-0 flex overflow-hidden bg-transparent z-30"
+      >
+        {/* 배경 이미지 */}
+        <section className="flex w-[25.8125rem] h-full overflow-hidden">
+          <img src="src/assets/bg-register.png" alt="background image" />
+          {/* process */}
+        </section>
+        {/* 1. 별명 입력 -> 2. 장소 추가 -> 3. 반려동물 프로필 등록 */}
+        {/* 별명 입력 */}
+        <section
+          className={`${
+            step < 2 ? 'pb-[2.62rem]' : 'pb-[19.31rem]'
+          } flex flex-col justify-between items-center w-[25rem] h-full z-10 bg-white pt-[3.75rem] shadow-md`}
+        >
+          <Title step={step} />
+          <UserInfo
+            step={step}
+            userInfo={input}
+            handleInputChange={handleInputChange}
+            handleSetPlace={setInput}
+          />
+          {step < 2 && (
+            <RegisterButton
+              step={step}
+              onClickNext={handleNextStep}
+              onClickPrev={handlePrevStep}
+              nicknameLength={input?.nickname?.length}
+            />
+          )}
+        </section>
+      </dialog>
+    </>
   );
 };
 
