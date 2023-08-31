@@ -13,8 +13,6 @@ const Header = () => {
   const { pathname } = useLocation();
   const nav = useNavigate();
 
-  console.log(pathname);
-
   return (
     <>
       <header className="flex justify-between items-center w-full pl-[21.31rem] pr-[20.25rem] h-[6.25rem] sm:px-10 border-b border-gray-40">
