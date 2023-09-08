@@ -1,26 +1,19 @@
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../../store';
-import { handleLoginToggle } from '../../../store/slices/loginToggleSlice';
+import { useNavigate } from 'react-router-dom';
+import { ReactComponent as LoginIcon } from '../../../assets/icon_logout.svg';
 
 const BeforeLogin = () => {
-  const dispatch = useDispatch<AppDispatch>();
+  const nav = useNavigate();
 
-  const onClickLogin = () => {
-    dispatch(handleLoginToggle());
-  };
+  const onClickLogin = () => nav('/login');
 
   return (
-    <div className="w-[8.12rem] flex items-center justify-between">
-      <span
-        className="text-gray-60 text-[0.9375rem] -tracking-[0.0049rem] font-[400]"
-        onClick={onClickLogin}
-      >
-        Log in
-      </span>
-      <span className="text-gray-60 text-[0.9375rem] -tracking-[0.0049rem] font-[400]">
-        Sign up
-      </span>
-    </div>
+    <span
+      className="flex p-2 text-[#555] text-[0.9375rem] font-[400] -tracking-[0.00469rem] cursor-pointer"
+      onClick={onClickLogin}
+    >
+      <LoginIcon />
+      <span className="ml-[0.5rem]">LOGIN</span>
+    </span>
   );
 };
 

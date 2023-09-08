@@ -7,6 +7,7 @@ import { ReactComponent as LogoBanner } from '../../assets/logo font.svg';
 import NavBar from './components/NavBar';
 import HeaderMenuToggle from './components/HeaderMenuToggle';
 import BeforeLogin from './components/BeforeLogin';
+import AfterLogin from './components/AfterLogin';
 
 const Header = () => {
   const [menuToggle, handleMenuToggle] = useToggle(false);
@@ -15,7 +16,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex justify-between items-center w-full pl-[21.31rem] pr-[20.25rem] h-[6.25rem] sm:px-10 border-b border-gray-40">
+      <header className="flex justify-between items-center pl-[16.7vw] pr-[15.625vw] h-[6.25rem] border-b border-gray-40">
         <LogoBanner onClick={() => nav('/')} className="w-[8rem] cursor-pointer" />
         <div className="flex w-[30rem] justify-between items-center sm:hidden">
           <NavBar pathname={pathname} navHome={() => nav('/')} navPlace={() => nav('place')} />
