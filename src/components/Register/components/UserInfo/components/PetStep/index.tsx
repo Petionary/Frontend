@@ -1,13 +1,9 @@
 import Button from '../../../../../Button';
 
 const PetStep = () => {
-  const handleRegisterPet = () => {
-    console.log('click');
-  };
+  const handleRegisterPet = () => {};
 
-  const handleSkipRegister = () => {
-    console.log('skip');
-  };
+  const handleSkipRegister = () => {};
 
   return (
     <div className="w-full h-[8.51rem] flex flex-col items-center justify-between">

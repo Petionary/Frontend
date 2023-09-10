@@ -7,7 +7,6 @@ import { ReactComponent as LogoBanner } from '../../assets/logo font.svg';
 import NavBar from './components/NavBar';
 import HeaderMenuToggle from './components/HeaderMenuToggle';
 import BeforeLogin from './components/BeforeLogin';
-import AfterLogin from './components/AfterLogin';
 
 const Header = () => {
   const [menuToggle, handleMenuToggle] = useToggle(false);
