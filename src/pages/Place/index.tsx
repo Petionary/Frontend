@@ -5,7 +5,6 @@ import Filter from './components/Filter';
 import PlaceList from './components/PlaceList';
 import MapContainer from './components/MapContainer';
 import ToolBar from './components/ToolBar';
-import Recommend from './components/Recommend';
 import MapButton from './components/MapButton';
 
 const placeParam = {
@@ -35,7 +34,7 @@ const Place = () => {
   }, [params.region]);
 
   return (
-    <main className="relative flex flex-col items-center min-h-[90vh] mx-auto overflow-x-hidden">
+    <main className="relative flex bg-background flex-col items-center h-screen mx-auto overflow-scroll">
       {!mapToggle && (
         <ToolBar
           handleFilterToggle={handleFilterToggle}
@@ -50,14 +49,7 @@ const Place = () => {
         setParams={setParams}
         handleParams={handleParams}
       />
-      {mapToggle ? (
-        <MapContainer />
-      ) : (
-        <>
-          <Recommend />
-          <PlaceList />
-        </>
-      )}
+      {mapToggle ? <MapContainer /> : <PlaceList />}
       <MapButton mapToggle={mapToggle} onClick={handleMapToggle} />
     </main>
   );

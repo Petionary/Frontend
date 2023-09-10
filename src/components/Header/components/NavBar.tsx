@@ -6,14 +6,14 @@ interface NavBarProps {
 
 const NavBar = ({ pathname, navHome, navPlace }: NavBarProps) => {
   return (
-    <nav className="flex justify-between text-sm text-gray-100 w-[20rem]">
+    <nav className="flex justify-between text-sm text-gray-100 w-[12.25rem]">
       <span
-        className={`cursor-pointer border-b border-white hover:border-gray-100 p-2 ${
+        className={`cursor-pointer border-b hover:border-gray-100 p-2 ${
           pathname === '/' ? 'border-gray-100' : 'border-white'
         }`}
         onClick={navHome}
       >
-        Home
+        홈
       </span>
       <span
         className={`cursor-pointer border-b hover:border-gray-100 p-2 ${
@@ -21,13 +21,10 @@ const NavBar = ({ pathname, navHome, navPlace }: NavBarProps) => {
         }`}
         onClick={navPlace}
       >
-        Place
+        플레이스
       </span>
       <span className={`cursor-pointer border-b border-white hover:border-gray-100 p-2 `}>
-        Register
-      </span>
-      <span className={`cursor-pointer border-b border-white hover:border-gray-100 p-2 `}>
-        Community
+        실종신고
       </span>
     </nav>
   );
