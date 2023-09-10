@@ -1,40 +1,16 @@
 import { ComponentPropsWithoutRef } from 'react';
 
 interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
-  width?: 'sm' | 'md' | 'lg' | 'full'; // default = 'md'
-  color?: 'primary' | 'secondary' | 'red'; // default = 'primary'
-  position?: 'relative' | 'fixed' | 'absolute'; // default = 'relative'
-  rounded?: boolean; // default = true
-  margin?: string; // default = 'm-0'
+  size?: 'sm' | 'lg';
+  cta?: boolean;
 }
 
-const BTN_COLOR = {
-  primary: 'bg-primary hover:bg-primary-dark disabled:opacity-50 disabled:hover:bg-primary',
-  secondary: 'bg-secondary hover:bg-secondary-dark disabled:opacity-50 disabled:hover:bg-secondary',
-  red: 'bg-red hover:bg-red-dark disabled:opacity-50 disabled:hover:bg-red',
-};
-
-const BTN_SIZE = {
-  sm: 'min-w-[3rem]',
-  md: 'min-w-[10rem]',
-  lg: 'min-w-[20rem]',
-  full: 'w-full',
-};
-
-const Button = ({
-  width = 'md',
-  color = 'primary',
-  rounded = true,
-  margin = 'm-0',
-  position = 'relative',
-  children,
-  ...rest
-}: ButtonProps) => {
-  const button_rounded = rounded ? `rounded-full` : '';
-
+const Button = ({ children, cta = false, size = 'sm', ...rest }: ButtonProps) => {
+  const width = size === 'sm' ? 'min-w-[5.0625rem]' : 'min-w-[14.125rem]';
+  const color = !cta ? 'text-primary bg-none' : 'text-white bg-primary';
   return (
     <button
-      className={`btn ${BTN_SIZE[width]} ${BTN_COLOR[color]} ${position} ${button_rounded} ${margin}`}
+      className={`${color} ${width} text-[0.9375rem] font-[700] -tracking-[0.0469rem] h-[3.625rem] px-[1.5rem] rounded-[0.13rem] border border-primary disabled:border-none disabled:bg-gray-20 disabled:text-gray-40`}
       {...rest}
     >
       {children}
