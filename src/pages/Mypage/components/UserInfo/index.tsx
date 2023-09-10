@@ -1,6 +1,7 @@
 import Button from '../../../../components/Button';
 import useInput from '../../../../hooks/useInput';
 import useToggle from '../../../../hooks/useToggle';
+import InfoTitle from '../InfoTitle';
 import BasicInfo from './components/BasicInfo';
 import ContactInfo from './components/ContactInfo';
 import EditButton from './components/EditButton';
@@ -42,12 +43,14 @@ const UserInfo = () => {
   };
 
   return (
-    <>
+    <section className="px-[5.44rem] py-[2.5rem] w-full">
+      <InfoTitle title="My Profile" />
       <BasicInfo
         editToggle={editToggle}
         user={userInput}
         handleUserInputChange={handleUserInputChange}
       />
+      <InfoTitle title="My Place" />
       <ContactInfo
         editToggle={editToggle}
         user={userInput}
@@ -63,7 +66,7 @@ const UserInfo = () => {
       ) : (
         <Button onClick={handleEditToggle}>회원정보수정</Button>
       )}
-    </>
+    </section>
   );
 };
 
