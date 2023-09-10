@@ -19,7 +19,7 @@ const user = {
 
 export type TUser = typeof user;
 
-const UserPage = () => {
+const UserInfo = () => {
   const {
     input: userInput,
     handleInputChange: handleUserInputChange,
@@ -67,6 +67,4 @@ const UserPage = () => {
   );
 };
 
-export default UserPage;
-
-// div className="sm:w-full w-[50vw] mx-auto flex flex-col items-center"
+export default UserInfo;

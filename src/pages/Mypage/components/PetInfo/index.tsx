@@ -11,7 +11,7 @@ export const mock = {
   detailSpecies: '반려동물 상세구분',
 };
 
-const PetPage = () => {
+const PetInfo = () => {
   const [addPetToggle, handleAddPetToggle] = useToggle(false);
   return (
     <>
@@ -23,4 +23,4 @@ const PetPage = () => {
     </>
   );
 };
-export default PetPage;
+export default PetInfo;
