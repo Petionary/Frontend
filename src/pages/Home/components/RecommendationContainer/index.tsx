@@ -1,9 +1,6 @@
-import { ComponentPropsWithoutRef } from 'react';
 import RecommendedList from './components/RecommendedList';
 
-interface RecommendationContainerProps extends ComponentPropsWithoutRef<'section'> {}
-
-const RecommendationContainer = ({ ...rest }: RecommendationContainerProps) => {
+const RecommendationContainer = () => {
   return (
     <>
       <RecommendedList type="best" />

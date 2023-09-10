@@ -1,4 +1,3 @@
-import { type } from 'os';
 import RecommendedItem from './RecommendedItem';
 import RecommendedTitle from './RecommendedTitle';
 import { IPlace } from '../../../../../utils/type';
