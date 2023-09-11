@@ -1,10 +1,7 @@
-import Button from '../../../../components/Button';
 import useInput from '../../../../hooks/useInput';
 import useToggle from '../../../../hooks/useToggle';
 import InfoTitle from '../InfoTitle';
-import BasicInfo from './components/BasicInfo';
-import ContactInfo from './components/ContactInfo';
-import EditButton from './components/EditButton';
+import UserProfile from './components/UserProfile';
 
 const user = {
   email: '',
@@ -43,15 +40,16 @@ const UserInfo = () => {
   };
 
   return (
-    <section className="px-[5.44rem] py-[2.5rem] w-full">
+    <section className="px-[5.44rem] py-[2.5rem]">
       <InfoTitle title="My Profile" />
-      <BasicInfo
+      <UserProfile />
+      {/* <BasicInfo
         editToggle={editToggle}
         user={userInput}
         handleUserInputChange={handleUserInputChange}
-      />
+      />*/}
       <InfoTitle title="My Place" />
-      <ContactInfo
+      {/*<ContactInfo
         editToggle={editToggle}
         user={userInput}
         handleUserInputChange={handleUserInputChange}
@@ -65,7 +63,7 @@ const UserInfo = () => {
         />
       ) : (
         <Button onClick={handleEditToggle}>회원정보수정</Button>
-      )}
+      )} */}
     </section>
   );
 };
