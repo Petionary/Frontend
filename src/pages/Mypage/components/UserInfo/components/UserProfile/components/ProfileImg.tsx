@@ -1,6 +1,11 @@
 import { ReactComponent as EditButton } from '../../../../../../../assets/icon_edit_profile.svg';
 
-const ProfileImg = ({ imgSrc }: { imgSrc?: string }) => {
+interface ProfileImgProps {
+  imgSrc?: string | undefined;
+  editToggle: boolean;
+}
+
+const ProfileImg = ({ imgSrc }: ProfileImgProps) => {
   return (
     <div className="relative h-[10rem]">
       <img

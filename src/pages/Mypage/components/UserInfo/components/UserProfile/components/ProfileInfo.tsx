@@ -1,17 +1,36 @@
-import Input from '../../../../../../../components/Input';
+import useInput from '../../../../../../../hooks/useInput';
+import { IUser } from '../../../../../../../utils/type';
+import AddressInfo from './AddressInfo';
+import BasicInfo from './BasicInfo';
 
-const ProfileInfo = () => {
+interface ProfileInfoProps {
+  user: IUser;
+  editToggle: boolean;
+}
+
+const ProfileInfo = ({ user, editToggle }: ProfileInfoProps) => {
+  const { input, handleInputChange, setInput } = useInput({
+    nickname: user.nickname,
+    contact: user.contact,
+    postcode: user.postcode,
+    address: user.address,
+    detailAddress: user.detailAddress,
+  });
+
   return (
     <form className="w-[36.25rem] h-[23rem] flex flex-col justify-between">
-      <div className="flex w-full justify-between">
-        <Input width="sm" label="별명" value="" placeholder="별명" />
-        <Input width="sm" label="전화번호" value="" placeholder="전화번호" />
-      </div>
-      <div className="h-[15rem] flex flex-col justify-between">
-        <Input label="주소" value="" width="sm" placeholder="우편번호" />
-        <Input value="" width="lg" placeholder="주소" />
-        <Input value="" width="lg" placeholder="상세주소" />
-      </div>
+      <BasicInfo
+        nickname={input.nickname}
+        contact={input.contact}
+        onChangeInput={handleInputChange}
+        editToggle={editToggle}
+      />
+      <AddressInfo
+        user={input}
+        onChangeInput={handleInputChange}
+        setInput={setInput}
+        editToggle={editToggle}
+      />
     </form>
   );
 };
