@@ -10,6 +10,16 @@ export interface IPlace {
   rate: number;
 }
 
+export interface IPet {
+  id: number;
+  name: string;
+  birth_date: string;
+  gender: boolean;
+  species: string;
+  detail_species: string;
+  about: string;
+}
+
 export interface IUserProfile {
   nickname: string;
   contact: string;
@@ -20,7 +30,8 @@ export interface IUserProfile {
 export interface IUser extends IUserProfile {
   id: number;
   name: string;
-  gender: string;
+  gender: boolean;
   birth_date: string;
   profile_url: string;
+  pets: IPet[];
 }

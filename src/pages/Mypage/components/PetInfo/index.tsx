@@ -1,26 +1,17 @@
-import useToggle from '../../../../hooks/useToggle';
-import AddPet from './components/AddPet';
-import AddPetModal from './components/AddPetModal';
-import Pet from './components/Pet';
+import { IPet } from '../../../../utils/type';
+import InfoTitle from '../InfoTitle';
+import PetList from './components/PetList';
 
-export const mock = {
-  name: '반려동물 이름',
-  gender: '반려동물 성별',
-  birthDate: '반려동물 생년월일',
-  species: '반려동물 구분',
-  detailSpecies: '반려동물 상세구분',
-};
+interface PetInfoProps {
+  petList: IPet[];
+}
 
-const PetInfo = () => {
-  const [addPetToggle, handleAddPetToggle] = useToggle(false);
+const PetInfo = ({ petList }: PetInfoProps) => {
   return (
-    <>
-      <ul className="w-full grid grid-cols-2 gap-x-5 md:grid-cols-1 sm:grid-cols-1">
-        <Pet pet={mock} />
-        <AddPet onClick={handleAddPetToggle} />
-      </ul>
-      {addPetToggle && <AddPetModal />}
-    </>
+    <section className="px-[5.44rem] pt-[3.7vh] overflow-scroll">
+      <InfoTitle title="My Pet" />
+      <PetList pets={petList} />
+    </section>
   );
 };
 export default PetInfo;
