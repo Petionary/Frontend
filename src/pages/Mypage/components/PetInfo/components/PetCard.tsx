@@ -2,11 +2,20 @@ import { IPet } from '../../../../../utils/type';
 
 interface PetCardProps {
   pet: IPet;
+  onClickButton: () => void;
+  setPetId: React.Dispatch<React.SetStateAction<number | undefined>>;
 }
 
-const PetCard = ({ pet }: PetCardProps) => {
+const PetCard = ({ pet, onClickButton, setPetId }: PetCardProps) => {
+  const onClickPetDetail = () => {
+    onClickButton();
+    setPetId(pet.id);
+  };
   return (
-    <article className="w-[14.75rem] h-[21.25rem] my-[1.25rem] bg-white flex flex-col items-center cursor-pointer">
+    <article
+      onClick={onClickPetDetail}
+      className="w-[14.75rem] h-[21.25rem] my-[1.25rem] bg-white flex flex-col items-center cursor-pointer"
+    >
       <img
         src={pet.imageSrc}
         alt="pet_image"
