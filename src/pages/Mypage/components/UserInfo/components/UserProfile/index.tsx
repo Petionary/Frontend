@@ -1,5 +1,5 @@
 import { IUser } from '../../../../../../utils/type';
-import ProfileImg from './components/ProfileImg';
+import ProfileImg from '../../../../../../components/ProfileImg';
 import ProfileInfo from './components/ProfileInfo';
 
 interface UserProfileProps {

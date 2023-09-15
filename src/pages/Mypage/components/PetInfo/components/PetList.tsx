@@ -10,7 +10,7 @@ interface PetList {
 
 const PetList = ({ pets, handleDetailToggle, setPetId }: PetList) => {
   return (
-    <section className="flex flex-wrap justify-between w-[41.875vw] mt-[4.13rem]">
+    <section className="grid grid-cols-auto-fill-cards gap-x-[3rem] justify-between w-[41.875vw] mt-[4.13rem]">
       {pets.map(pet => (
         <PetCard key={pet.id} pet={pet} onClickButton={handleDetailToggle} setPetId={setPetId} />
       ))}

@@ -1,4 +1,4 @@
-import { ReactComponent as EditButton } from '../../../../../../../assets/icon_edit_profile.svg';
+import { ReactComponent as EditButton } from '../../assets/icon_edit_profile.svg';
 
 interface ProfileImgProps {
   imgSrc?: string | undefined;
@@ -7,7 +7,7 @@ interface ProfileImgProps {
 
 const ProfileImg = ({ imgSrc }: ProfileImgProps) => {
   return (
-    <div className="relative h-[10rem]">
+    <div className="relative w-[10rem] h-[10rem]">
       <img
         src={imgSrc ? imgSrc : ''}
         alt="img"
