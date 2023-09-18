@@ -7,15 +7,29 @@ import PlaceDetail from './pages/PlaceDetail';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Redirect from './pages/Redirect';
-import { useSelector } from 'react-redux';
-import { ReducerType } from './store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, ReducerType } from './store';
 import Register from './components/Register';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import useScrollLock from './hooks/useScrollLock';
+import { debounce, throttle } from 'lodash';
+import { handleViewport } from './store/slices/viewportSlice';
 
 const Router = () => {
-  const { login } = useSelector((state: ReducerType) => state);
+  const dispatch = useDispatch<AppDispatch>();
+  const { login, viewport } = useSelector((state: ReducerType) => state);
   const { lock, unlock } = useScrollLock();
+
+  const handleSize = throttle(() => {
+    dispatch(handleViewport());
+  }, 500);
+
+  useEffect(() => {
+    window.addEventListener('resize', handleSize);
+    return () => {
+      window.removeEventListener('resize', handleSize);
+    };
+  }, []);
 
   useEffect(() => {
     if (login) lock();
@@ -25,6 +39,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Header />
+      <div>{`w: ${viewport.width} h: ${viewport.height}`}</div>
       {login && <Register />}
       <Routes>
         <Route path="/" element={<Home />} />

@@ -1,7 +1,6 @@
 import { ChangeEvent } from 'react';
 import { TPlaceParam } from '../..';
 import FilterToggle from './components/FilterToggle';
-import SortToggle from './components/SortToggle';
 import SearchInput from '../SearchInput';
 import FilterList from './components/FilterList';
 
@@ -12,7 +11,7 @@ interface TogglesProps {
   handleParams: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const ToolBar = ({ handleFilterToggle, params, handleParams }: TogglesProps) => {
+const ToolBar = ({ params, handleParams }: TogglesProps) => {
   return (
     <section className="px-[20rem] flex flex-col justify-between items-center w-full sm:h-[8.69rem] relative z-10 bg-white sm:px-0 sm:bg-background">
       {/* <div className="flex w-full h-[6.125rem] items-center justify-between sm:border-b sm:h-[4.12rem] sm:px-[0.75rem]">
