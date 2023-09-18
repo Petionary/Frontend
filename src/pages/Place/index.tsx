@@ -42,13 +42,13 @@ const Place = () => {
           handleParams={handleParams}
         />
       )}
-      <Filter
+      {/* <Filter
         filterToggle={filterToggle}
         params={params}
         resetParams={resetParams}
         setParams={setParams}
         handleParams={handleParams}
-      />
+      /> */}
       {mapToggle ? <MapContainer /> : <PlaceList />}
       <MapButton mapToggle={mapToggle} onClick={handleMapToggle} />
     </main>
