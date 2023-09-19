@@ -34,7 +34,7 @@ export default {
         background: '#F8F8FA',
       },
       gridTemplateColumns: {
-        'auto-fill-place': 'repeat(auto-fill, 25rem)',
+        'auto-fill-place': 'repeat(auto-fill, minmax(25rem, 3fr))',
       },
     },
   },

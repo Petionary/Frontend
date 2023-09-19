@@ -38,7 +38,7 @@ const Router = () => {
 
   return (
     <BrowserRouter>
-      <Header />
+      {viewport.width > 815 && <Header />}
       <div>{`w: ${viewport.width} h: ${viewport.height}`}</div>
       {login && <Register />}
       <Routes>

@@ -34,7 +34,7 @@ const Place = () => {
   }, [params.region]);
 
   return (
-    <main className="relative flex bg-background flex-col items-center h-screen mx-auto overflow-scroll">
+    <main className="relative flex bg-background flex-col h-screen mx-auto overflow-scroll">
       {!mapToggle && (
         <ToolBar
           handleFilterToggle={handleFilterToggle}
