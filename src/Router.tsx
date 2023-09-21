@@ -10,9 +10,9 @@ import Redirect from './pages/Redirect';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, ReducerType } from './store';
 import Register from './components/Register';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import useScrollLock from './hooks/useScrollLock';
-import { debounce, throttle } from 'lodash';
+import { throttle } from 'lodash';
 import { handleViewport } from './store/slices/viewportSlice';
 
 const Router = () => {
@@ -39,7 +39,6 @@ const Router = () => {
   return (
     <BrowserRouter>
       {viewport.width > 815 && <Header />}
-      <div>{`w: ${viewport.width} h: ${viewport.height}`}</div>
       {login && <Register />}
       <Routes>
         <Route path="/" element={<Home />} />

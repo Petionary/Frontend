@@ -13,7 +13,7 @@ interface TogglesProps {
 
 const ToolBar = ({ params, handleParams }: TogglesProps) => {
   return (
-    <section className="px-[20rem] flex flex-col justify-between items-center w-full sm:h-[8.69rem] relative z-10 bg-white sm:px-0 sm:bg-background">
+    <section className="px-[20vw] flex flex-col justify-between items-center w-full sm:h-[8.69rem] relative z-10 bg-white sm:px-0 sm:bg-background">
       {/* <div className="flex w-full h-[6.125rem] items-center justify-between sm:border-b sm:h-[4.12rem] sm:px-[0.75rem]">
         <SortToggle params={params} handleParams={handleParams} />
         <FilterToggle handleFilterToggle={handleFilterToggle} />

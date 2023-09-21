@@ -70,13 +70,13 @@ const mock_place: IPlace[] = [
     detailAddress: '1층 대동관',
     postcode: '07685',
     contact: '02-2690-7288',
-    rate: 4.3,
+    rate: 3.8,
   },
 ];
 
 const PlaceList = () => {
   return (
-    <section className="py-[3rem] px-[16.1458vw] gap-y-[3rem] bg-background gap-x-[3.12rem] grid grid-cols-auto-fill-place z-0 place-items-center place-content-center">
+    <section className="py-[3rem] gap-y-[3rem] w-full mx-auto bg-background grid grid-cols-auto-fill-place z-0 place-items-center lg:px-[6vw] lg:grid-cols-3">
       {mock_place.map(place => (
         <Item place={place} key={place.id} />
       ))}
