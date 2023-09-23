@@ -76,7 +76,7 @@ const mock_place: IPlace[] = [
 
 const PlaceList = () => {
   return (
-    <section className="py-[3rem] gap-y-[3rem] w-full mx-auto bg-background grid grid-cols-auto-fill-place z-0 place-items-center lg:px-[6vw] lg:grid-cols-3">
+    <section className="py-[3rem] gap-y-[3rem] w-full mx-auto bg-background grid grid-cols-auto-fill-place z-0 place-items-center lg:w-[81.25rem] lg:grid-cols-3">
       {mock_place.map(place => (
         <Item place={place} key={place.id} />
       ))}

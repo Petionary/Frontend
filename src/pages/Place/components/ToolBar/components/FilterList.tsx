@@ -9,7 +9,7 @@ interface FilterListProps {
 
 const FilterList = ({ onChangeFilterItem, curr_category }: FilterListProps) => {
   return (
-    <section className="w-full h-[7.5rem] flex sm:hidden overflow-x-scroll">
+    <section className="w-full h-[7.5rem] flex justify-between sm:hidden overflow-x-scroll">
       <FilterItem curr_category={curr_category} onChange={onChangeFilterItem} value="total" />
       <FilterItem curr_category={curr_category} onChange={onChangeFilterItem} value="cafe" />
       <FilterItem curr_category={curr_category} onChange={onChangeFilterItem} value="restaurant" />
