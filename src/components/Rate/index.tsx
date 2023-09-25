@@ -27,10 +27,10 @@ const Rate = ({ rate }: { rate: number }) => {
   return (
     <div className="flex items-center absolute bottom-[0.94rem] right-[0.88rem]">
       <span className="flex mr-[0.38rem]">
-        {rates.map(star => {
-          if (star === 'full') return <Full />;
-          if (star === 'half') return <Half />;
-          else return <Empty />;
+        {rates.map((star, idx) => {
+          if (star === 'full') return <Full key={idx} />;
+          if (star === 'half') return <Half key={idx} />;
+          else return <Empty key={idx} />;
         })}
       </span>
       <span className="text-[0.875rem] font-[400] leading-[1.625rem] text-white">

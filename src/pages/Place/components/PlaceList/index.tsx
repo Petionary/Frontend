@@ -1,5 +1,14 @@
+import { ChangeEvent } from 'react';
+import { TPlaceParam } from '../..';
 import { IPlace } from '../../../../utils/type';
 import Item from './components/Item';
+import ListToolBar from './components/ListToolbar';
+
+interface PlaceListProps {
+  params: TPlaceParam;
+  // eslint-disable-next-line no-unused-vars
+  handleParams: (e: ChangeEvent<HTMLInputElement>) => void;
+}
 
 const mock_place: IPlace[] = [
   {
@@ -74,13 +83,16 @@ const mock_place: IPlace[] = [
   },
 ];
 
-const PlaceList = () => {
+const PlaceList = ({ params, handleParams }: PlaceListProps) => {
   return (
-    <section className="py-[3rem] gap-y-[3rem] w-full mx-auto bg-background grid grid-cols-auto-fill-place z-0 place-items-center lg:w-[81.25rem] lg:grid-cols-3">
-      {mock_place.map(place => (
-        <Item place={place} key={place.id} />
-      ))}
-    </section>
+    <>
+      <ListToolBar params={params} handleParams={handleParams} />
+      <section className="py-[3.12rem] gap-y-[3rem] w-full mx-auto bg-background grid grid-cols-auto-fill-place z-0 place-items-center lg:w-[81.25rem] lg:grid-cols-3">
+        {mock_place.map(place => (
+          <Item place={place} key={place.id} />
+        ))}
+      </section>
+    </>
   );
 };
 

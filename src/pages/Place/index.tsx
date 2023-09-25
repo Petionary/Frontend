@@ -49,7 +49,7 @@ const Place = () => {
         setParams={setParams}
         handleParams={handleParams}
       /> */}
-      {mapToggle ? <MapContainer /> : <PlaceList />}
+      {mapToggle ? <MapContainer /> : <PlaceList params={params} handleParams={handleParams} />}
       <MapButton mapToggle={mapToggle} onClick={handleMapToggle} />
     </main>
   );

@@ -44,7 +44,7 @@ const Router = () => {
         <Route path="/" element={<Home />} />
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/login/:social" element={<Redirect />} />
+        <Route path="/login/oauth2/code/:social" element={<Redirect />} />
         <Route path="/place" element={<Place />} />
         <Route path="/place/:id" element={<PlaceDetail />} />
         <Route path="/mypage/:menu" element={<Mypage />} />
