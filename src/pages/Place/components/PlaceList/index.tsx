@@ -2,7 +2,7 @@ import { ChangeEvent } from 'react';
 import { TPlaceParam } from '../..';
 import { IPlace } from '../../../../utils/type';
 import Item from './components/Item';
-import ListToolBar from './components/ListToolbar';
+import ListToolBar from './components/ListToolBar';
 
 interface PlaceListProps {
   params: TPlaceParam;

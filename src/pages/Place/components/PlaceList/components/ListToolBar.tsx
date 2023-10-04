@@ -1,6 +1,7 @@
 import { ChangeEvent } from 'react';
 import { TPlaceParam } from '../../..';
 import SortToggle from './SortToggle';
+import Location from './Location';
 
 interface ListToolBarProps {
   params: TPlaceParam;
@@ -10,7 +11,8 @@ interface ListToolBarProps {
 
 const ListToolBar = ({ params, handleParams }: ListToolBarProps) => {
   return (
-    <section className="w-full mx-auto bg-background lg:w-[81.25rem] lg:grid-cols-3">
+    <section className="w-full flex items-center mx-auto bg-background lg:w-[81.25rem] lg:grid-cols-3">
+      <Location />
       <SortToggle params={params} handleParams={handleParams} />
     </section>
   );
