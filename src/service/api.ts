@@ -4,7 +4,8 @@ import instance from './http';
 interface IApiService {
   path: string;
   // eslint-disable-next-line no-unused-vars
-  get: (param?: object) => Promise<IUser[] | IPlace[] | IPet[] | IUser | IPlace | IPet>;
+  get: (param?: object) => Promise<any>;
+  // get: (param?: object) => Promise<IUser[] | IPlace[] | IPet[] | IUser | IPlace | IPet>;
   // eslint-disable-next-line no-unused-vars
   post: (item: IUser | IPet) => void;
   // eslint-disable-next-line no-unused-vars
