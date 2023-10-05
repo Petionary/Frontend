@@ -1,10 +1,9 @@
-// eslint-disable-next-line no-unused-vars
-type TuseQueryKey = (url: string, params: object) => [string, object];
+const useQueryKey = (url: string) => {
+  const temp = url.split('/').slice(1);
+  const key = temp[0];
+  const id = { id: temp[1] };
 
-const useQueryKey: TuseQueryKey = (url, params) => {
-  const queryKey = url.split('/')[0];
-
-  return [queryKey, params];
+  return id.id ? [key, id] : [key];
 };
 
 export default useQueryKey;

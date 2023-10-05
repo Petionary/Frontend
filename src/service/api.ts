@@ -21,11 +21,14 @@ class ApiService implements IApiService {
   }
 
   // eslint-disable-next-line no-unused-vars
-  get: (params?: object) => Promise<IUser[] | IPlace[] | IPet[] | IUser | IPlace | IPet> =
-    async params => {
+  get: (params?: object) => Promise<any> = async params => {
+    try {
       const { data } = await instance.get(this.path, { params: params });
       return data;
-    };
+    } catch (err) {
+      console.error('ERROR :', err);
+    }
+  };
 
   // eslint-disable-next-line no-unused-vars
   post: (item: IUser | IPet) => void = async item => {

@@ -12,8 +12,10 @@ import { ReducerType } from './store';
 import Register from './components/Register';
 import { useEffect } from 'react';
 import useScrollLock from './hooks/useScrollLock';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const Router = () => {
+  const queryClient = new QueryClient();
   const { login } = useSelector((state: ReducerType) => state);
   const { lock, unlock } = useScrollLock();
 
@@ -23,20 +25,22 @@ const Router = () => {
   }, [login]);
 
   return (
-    <BrowserRouter>
-      <Header />
-      {login && <Register />}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/" element={<App />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/login/:social" element={<Redirect />} />
-        <Route path="/place" element={<Place />} />
-        <Route path="/place/:id" element={<PlaceDetail />} />
-        <Route path="/mypage/:menu" element={<Mypage />} />
-      </Routes>
-      {/* <Footer /> */}
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Header />
+        {login && <Register />}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/" element={<App />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/login/:social" element={<Redirect />} />
+          <Route path="/place" element={<Place />} />
+          <Route path="/place/:id" element={<PlaceDetail />} />
+          <Route path="/mypage/:menu" element={<Mypage />} />
+        </Routes>
+        {/* <Footer /> */}
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 };
 
