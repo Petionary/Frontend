@@ -7,10 +7,10 @@ interface IApiService {
   get: (param?: object) => Promise<any>;
   // get: (param?: object) => Promise<IUser[] | IPlace[] | IPet[] | IUser | IPlace | IPet>;
   // eslint-disable-next-line no-unused-vars
-  post: (item: IUser | IPet) => void;
+  post: (item: IUser | IPet) => Promise<any>;
   // eslint-disable-next-line no-unused-vars
-  patch: (item: IUser | IPet) => void;
-  delete: () => void;
+  patch: (item: IUser | IPet) => Promise<any>;
+  delete: () => Promise<any>;
 }
 
 class ApiService implements IApiService {
@@ -22,26 +22,25 @@ class ApiService implements IApiService {
 
   // eslint-disable-next-line no-unused-vars
   get: (params?: object) => Promise<any> = async params => {
-    try {
-      const { data } = await instance.get(this.path, { params: params });
-      return data;
-    } catch (err) {
-      console.error('ERROR :', err);
-    }
+    const { data } = await instance.get(this.path, { params: params });
+    return data;
   };
 
   // eslint-disable-next-line no-unused-vars
-  post: (item: IUser | IPet) => void = async item => {
-    await instance.post(this.path, item);
+  post: (item: IUser | IPet) => Promise<any> = async item => {
+    const { data } = await instance.post(this.path, item);
+    return data;
   };
 
   // eslint-disable-next-line no-unused-vars
-  patch: (item: IUser | IPet) => void = async item => {
-    await instance.patch(this.path, item);
+  patch: (item: IUser | IPet) => Promise<any> = async item => {
+    const { data } = await instance.patch(this.path, item);
+    return data;
   };
 
-  delete: () => void = async () => {
-    await instance.delete(this.path);
+  delete: () => Promise<any> = async () => {
+    const { data } = await instance.delete(this.path);
+    return data;
   };
 }
 
