@@ -1,4 +1,4 @@
-import { IPet, IPlace, IUser } from '../utils/type';
+import { IPet, IUser } from '../utils/type';
 import instance from './http';
 
 interface IApiService {
