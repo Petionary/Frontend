@@ -6,7 +6,7 @@ interface PetDetailProps {
   petId: number | undefined;
 }
 
-const PetDetail = ({ petId }: PetDetailProps) => {
+const PetDetail = ({}: PetDetailProps) => {
   // prop으로 전달받은 id에 맞는 데이터 fetch
   // id === undefined => pet 추가 페이지 보여주기
   const [editToggle, handleEditToggle] = useToggle();
@@ -18,6 +18,7 @@ const PetDetail = ({ petId }: PetDetailProps) => {
         <div className="flex w-full justify-between">
           <Input label="이름" value="" width="sm" />
           <Input label="생년월일" value="" width="sm" />
+          <button onClick={handleEditToggle}>임시</button>
         </div>
       </form>
     </section>
