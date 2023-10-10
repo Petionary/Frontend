@@ -1,6 +1,5 @@
 import { ChangeEvent } from 'react';
 import { TPlaceParam } from '../..';
-import FilterToggle from './components/FilterToggle';
 import SearchInput from '../SearchInput';
 import FilterList from './components/FilterList';
 
