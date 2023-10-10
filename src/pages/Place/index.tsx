@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import useInput from '../../hooks/useInput';
 import useToggle from '../../hooks/useToggle';
-import Filter from './components/Filter';
 import PlaceList from './components/PlaceList';
 import MapContainer from './components/MapContainer';
 import ToolBar from './components/ToolBar';
 import MapButton from './components/MapButton';
+import Filter from './components/Filter';
 
 const placeParam = {
   search: '',
@@ -34,7 +34,7 @@ const Place = () => {
   }, [params.region]);
 
   return (
-    <main className="relative flex bg-background flex-col items-center h-screen mx-auto overflow-scroll">
+    <main className="relative flex bg-background flex-col h-screen mx-auto overflow-scroll">
       {!mapToggle && (
         <ToolBar
           handleFilterToggle={handleFilterToggle}
@@ -49,7 +49,7 @@ const Place = () => {
         setParams={setParams}
         handleParams={handleParams}
       />
-      {mapToggle ? <MapContainer /> : <PlaceList />}
+      {mapToggle ? <MapContainer /> : <PlaceList params={params} handleParams={handleParams} />}
       <MapButton mapToggle={mapToggle} onClick={handleMapToggle} />
     </main>
   );
