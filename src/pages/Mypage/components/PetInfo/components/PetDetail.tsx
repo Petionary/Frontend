@@ -18,6 +18,7 @@ const PetDetail = ({}: PetDetailProps) => {
         <div className="flex w-full justify-between">
           <Input label="이름" value="" width="sm" />
           <Input label="생년월일" value="" width="sm" />
+          <button onClick={handleEditToggle}>임시</button>
         </div>
       </form>
     </section>
