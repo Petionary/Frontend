@@ -12,7 +12,7 @@ export default defineConfig({
     },
   },
   server: {
-    port: 3000,
+    port: 8080,
   },
   plugins: [react(), tsconfigPaths(), svgr()],
 });
