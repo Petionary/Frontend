@@ -6,7 +6,6 @@ const KakaoRedirect = () => {
   const code = new URL(window.location.href).searchParams.get('code');
 
   useEffect(() => {
-    console.log(code);
     nav('/');
   }, []);
   return <div>{code}</div>;

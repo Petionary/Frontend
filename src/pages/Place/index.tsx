@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import useInput from '../../hooks/useInput';
 import useToggle from '../../hooks/useToggle';
-import Filter from './components/Filter';
 import PlaceList from './components/PlaceList';
 import MapContainer from './components/MapContainer';
 import ToolBar from './components/ToolBar';
 import MapButton from './components/MapButton';
+import Filter from './components/Filter';
 
 const placeParam = {
   search: '',
@@ -42,13 +42,13 @@ const Place = () => {
           handleParams={handleParams}
         />
       )}
-      {/* <Filter
+      <Filter
         filterToggle={filterToggle}
         params={params}
         resetParams={resetParams}
         setParams={setParams}
         handleParams={handleParams}
-      /> */}
+      />
       {mapToggle ? <MapContainer /> : <PlaceList params={params} handleParams={handleParams} />}
       <MapButton mapToggle={mapToggle} onClick={handleMapToggle} />
     </main>

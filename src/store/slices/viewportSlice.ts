@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { debounce } from 'lodash';
 
 const initialWidth = window.innerWidth;
 const initialHeight = window.innerHeight;
