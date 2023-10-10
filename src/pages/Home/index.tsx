@@ -7,15 +7,7 @@ const Home = () => {
     <main className="scroll-smooth snap-mandatory snap-y h-screen overflow-scroll">
       <WelcomeContainer />
       <RecommendationContainer />
-      {/* place recommendation */}
-      {/* title */}
-      {/* placeList */}
-      {/* placeCard */}
       <MissingAnnounceContainer />
-      {/* missing announce */}
-      {/* title */}
-      {/* missing list */}
-      {/* missing card */}
     </main>
   );
 };
