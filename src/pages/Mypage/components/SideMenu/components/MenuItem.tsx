@@ -14,10 +14,10 @@ const MENU_TEXT: { [key: string]: string } = {
 
 const MenuItem = ({ menu, curr_menu, ...rest }: MenuItemProps) => {
   const color = menu === curr_menu ? 'text-primary' : 'text-gray-60';
-  const weight = menu === curr_menu ? 'font-[600]' : 'font-[400]';
+  const weight = menu === curr_menu ? 'font-[500]' : 'font-[400]';
   return (
     <button
-      className={`text-[1.25rem] leading-[2rem] -tracking-[0.00625rem] py-[1.875rem] ${weight} ${color}`}
+      className={`text-[0.9375rem] -tracking-[0.00469rem] py-[1.875rem] ${weight} ${color}`}
       {...rest}
     >
       {MENU_TEXT[menu]}

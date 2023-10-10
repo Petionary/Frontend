@@ -6,6 +6,7 @@ interface InputProps extends ComponentPropsWithoutRef<'input'> {
   isValid?: boolean | undefined;
   width?: 'sm' | 'md' | 'lg';
   guide?: string | undefined;
+  required?: boolean;
 }
 
 const WIDTH = {
@@ -16,9 +17,17 @@ const WIDTH = {
 
 //
 
-const Input = ({ label, isValid, guide, width = 'md', value, ...rest }: InputProps) => {
+const Input = ({
+  label,
+  isValid,
+  guide,
+  width = 'md',
+  value,
+  required = false,
+  ...rest
+}: InputProps) => {
   const color =
-    value?.length === 0
+    !required || value?.length === 0
       ? 'border-gray-40'
       : isValid
       ? 'text-primary border-primary'
