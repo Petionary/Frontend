@@ -13,7 +13,7 @@ const Item = ({ place }: ItemProps) => {
           className="w-full h-[11.25rem] sm:h-[11.1875rem] bg-[#D9D9D9]"
           src={place.thumbnailSrc}
         />
-        <Rate rate={place.rate} />
+        <Rate rate={place.rate} list />
       </div>
       <div className="w-full h-[50%] sm:h-[30%] flex flex-col justify-between py-3 px-5 text-sm">
         <div className="flex flex-col justify-between h-[5rem]">

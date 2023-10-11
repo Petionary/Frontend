@@ -13,7 +13,7 @@ const DetailContainer = ({ place }: DetailContainerProps) => {
       <PlaceImage images={place.images} />
       <div className="w-[39.5rem] h-[18.75rem] flex flex-col justify-between">
         <Detail />
-        <Tools reviews={place.reviews} />
+        <Tools rate={place.rate} reviews={place.reviews} />
       </div>
     </section>
   );
