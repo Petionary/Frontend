@@ -9,9 +9,9 @@ interface DetailContainerProps {
 
 const DetailContainer = ({ place }: DetailContainerProps) => {
   return (
-    <section className="w-[80rem] h-[23.75rem] py-[2.5rem] flex justify-between items-center">
+    <section className="w-[100vw] h-[23.75rem] py-[2.5rem] px-[16.7vw] flex justify-between items-center border-b-[1.25rem] border-gray-20">
       <PlaceImage images={place.images} />
-      <div className="w-[39.5rem] h-[18.75rem] flex flex-col justify-between">
+      <div className="w-[33vw] h-[18.75rem] flex flex-col justify-between">
         <Detail />
         <Tools rate={place.rate} reviews={place.reviews} />
       </div>

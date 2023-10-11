@@ -1,4 +1,7 @@
+import { ReactNode } from 'react';
+import useInput from '../../hooks/useInput';
 import DetailContainer from './components/DetailContainer';
+import DetailMenu from './components/DetailMenu';
 import MapContainer from './components/MapContainer';
 import ReviewContainer from './components/ReviewContainer';
 
@@ -50,11 +53,17 @@ const mockPlace = {
 export type Tmock = typeof mockPlace;
 
 const PlaceDetail = () => {
+  const { input, handleInputChange } = useInput({ menu: 'store' });
+  const CONTENT: { [key: string]: ReactNode } = {
+    map: <MapContainer />,
+    reviews: <ReviewContainer />,
+  };
+
   return (
     <main className="flex flex-col items-center">
       <DetailContainer place={mockPlace} />
-      <MapContainer />
-      <ReviewContainer />
+      <DetailMenu onClickMenu={handleInputChange} />
+      {CONTENT[input.menu]}
     </main>
   );
 };

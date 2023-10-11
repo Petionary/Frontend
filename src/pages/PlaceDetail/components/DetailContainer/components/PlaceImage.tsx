@@ -17,7 +17,7 @@ const PlaceImage = ({ images, ...rest }: PlaceImageProps) => {
   };
 
   return (
-    <section className="relative w-[37.5rem] flex overflow-hidden">
+    <section className="relative w-[31vw] flex overflow-hidden">
       {images?.map(el => {
         return (
           <img

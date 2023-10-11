@@ -46,7 +46,8 @@ const Rate = ({ rate, reviews, list = false }: RateProps) => {
             : 'text-[1.5rem] text-gray-70 font-[600] tracking-[0.06rem]'
         }`}
       >
-        {rate.toFixed(1)}({reviews && reviews.length})
+        {rate.toFixed(1)}
+        {reviews && `(${reviews.length})`}
       </span>
     </div>
   );
