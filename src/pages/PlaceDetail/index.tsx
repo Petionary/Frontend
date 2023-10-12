@@ -1,9 +1,9 @@
-import { ReactNode } from 'react';
 import useInput from '../../hooks/useInput';
 import DetailContainer from './components/DetailContainer';
 import DetailMenu from './components/DetailMenu';
 import MapContainer from './components/MapContainer';
 import ReviewContainer from './components/ReviewContainer';
+import StoreInfoContainer from './components/StoreInfoContainer';
 
 const mockPlace = {
   id: 1,
@@ -53,16 +53,20 @@ const mockPlace = {
 export type Tmock = typeof mockPlace;
 
 const PlaceDetail = () => {
-  const { input, handleInputChange } = useInput({ menu: 'store' });
-  const CONTENT: { [key: string]: ReactNode } = {
+  const { input, handleInputChange } = useInput<{ menu: 'store' | 'map' | 'reviews' }>({
+    menu: 'store',
+  });
+
+  const CONTENT: { [key: string]: JSX.Element } = {
+    store: <StoreInfoContainer />,
     map: <MapContainer />,
     reviews: <ReviewContainer />,
   };
 
   return (
-    <main className="flex flex-col items-center">
+    <main className="flex flex-col items-center overflow-scroll">
       <DetailContainer place={mockPlace} />
-      <DetailMenu onClickMenu={handleInputChange} />
+      <DetailMenu curr_menu={input.menu} onClickMenu={handleInputChange} />
       {CONTENT[input.menu]}
     </main>
   );

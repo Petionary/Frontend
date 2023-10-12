@@ -18,12 +18,12 @@ const PlaceImage = ({ images, ...rest }: PlaceImageProps) => {
 
   return (
     <section className="relative w-[31vw] flex overflow-hidden">
-      {images?.map(el => {
+      {images?.map((el, idx) => {
         return (
           <img
             {...rest}
             alt="image"
-            key={el}
+            key={idx}
             src={el}
             className={`min-w-[37.5rem] h-[18.75rem] rounded-[0.25rem] bg-gray-20 duration-500 -translate-x-[${
               page * 37.5
