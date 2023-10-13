@@ -7,7 +7,7 @@ interface StoreInfoContainerProps {
   place?: IPlace;
 }
 
-const StoreInfoContainer = ({ place }: StoreInfoContainerProps) => {
+const StoreInfoContainer = ({}: StoreInfoContainerProps) => {
   return (
     <section className="w-full px-[16.67vw]">
       <BasicInfo />
