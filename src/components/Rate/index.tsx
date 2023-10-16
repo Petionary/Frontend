@@ -34,9 +34,9 @@ const Rate = ({ rate, reviews, list = false }: RateProps) => {
     <div className={`flex items-center ${list ? 'absolute bottom-[0.94rem] right-[0.88rem]' : ''}`}>
       <span className="flex mr-[0.38rem]">
         {rates.map((star, idx) => {
-          if (star === 'full') return <Full key={idx} />;
+          if (star === 'full') return <Full key={idx} className="fill-primary" />;
           if (star === 'half') return <Half key={idx} />;
-          else return <Empty key={idx} />;
+          else return <Empty key={idx} className="fill-[#eeeeee]" />;
         })}
       </span>
       <span

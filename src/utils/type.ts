@@ -35,3 +35,13 @@ export interface IUser extends IUserProfile {
   profile_url: string;
   pets: IPet[];
 }
+
+export interface IReview {
+  id?: number;
+  author: string;
+  profile_img: string;
+  date: string;
+  rate: number;
+  content: string;
+  imageURLs?: string[];
+}

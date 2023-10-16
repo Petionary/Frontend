@@ -4,6 +4,8 @@ import CreateReviewButton from './components/CreateReviewButton';
 import useToggle from '../../../../hooks/useToggle';
 import useScrollLock from '../../../../hooks/useScrollLock';
 import { useEffect } from 'react';
+import ReviewBox from './components/ReviewBox';
+import CreateReviewModal from './components/CreateReviewModal';
 
 const ReviewContainer = () => {
   const { input, handleInputChange, setInput } = useInput<{ sort: string; order: 'asc' | 'desc' }>({
@@ -30,15 +32,11 @@ const ReviewContainer = () => {
         createReviewToggle={createReviewToggle}
         handleCreateReviewToggle={hanndleCreateReviewToggle}
       />
-      {createReviewToggle && (
-        <div className="w-[100vw] h-[100vh] bg-gray-100 absolute top-0 left-0 opacity-[0.5]" />
-      )}
-      <dialog
-        open={createReviewToggle}
-        className="w-[52.875rem] h-[85vh] bg-background absolute top-[6vh]"
-      >
-        open
-      </dialog>
+      <CreateReviewModal
+        createReviewToggle={createReviewToggle}
+        handleCreateReviewToggle={hanndleCreateReviewToggle}
+      />
+      <ReviewBox />
     </section>
   );
 };
