@@ -32,10 +32,12 @@ const ReviewContainer = () => {
         createReviewToggle={createReviewToggle}
         handleCreateReviewToggle={hanndleCreateReviewToggle}
       />
-      <CreateReviewModal
-        createReviewToggle={createReviewToggle}
-        handleCreateReviewToggle={hanndleCreateReviewToggle}
-      />
+      {createReviewToggle && (
+        <CreateReviewModal
+          createReviewToggle={createReviewToggle}
+          handleCreateReviewToggle={hanndleCreateReviewToggle}
+        />
+      )}
       <ReviewBox />
     </section>
   );

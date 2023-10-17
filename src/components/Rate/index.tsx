@@ -6,9 +6,10 @@ interface RateProps {
   rate: number;
   reviews?: object[];
   list?: boolean;
+  grade_only?: boolean;
 }
 
-const Rate = ({ rate, reviews, list = false }: RateProps) => {
+const Rate = ({ rate, reviews, grade_only, list = false }: RateProps) => {
   const decimal = Number((rate % 1).toFixed(1));
   const integer = rate - decimal;
 
@@ -46,7 +47,7 @@ const Rate = ({ rate, reviews, list = false }: RateProps) => {
             : 'text-[1.5rem] text-gray-70 font-[600] tracking-[0.06rem]'
         }`}
       >
-        {rate.toFixed(1)}
+        {!grade_only && rate.toFixed(1)}
         {reviews && `(${reviews.length})`}
       </span>
     </div>

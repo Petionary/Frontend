@@ -1,5 +1,6 @@
 import useInput from '../../../../../../hooks/useInput';
 import { IReview } from '../../../../../../utils/type';
+import CreateReviewContent from './components/CreateReviewContent';
 import CreateReviewHeader from './components/CreateReviewHeader';
 import CreateReviewRate from './components/CreateReviewRate';
 
@@ -21,6 +22,7 @@ const CreateReviewModal = ({
   handleCreateReviewToggle,
 }: CreateReviewModalProps) => {
   const { input, handleInputChange, setInput } = useInput<IReview>(initialReview);
+
   return (
     <>
       {createReviewToggle && (
@@ -28,14 +30,14 @@ const CreateReviewModal = ({
       )}
       <dialog
         open={createReviewToggle}
-        className="w-[52.875rem] h-[85vh] bg-background fixed top-[6vh] p-[1.75rem] rounded-[0.25rem]"
+        className="w-[52.875rem] h-[85vh] bg-background fixed top-[6vh] p-[1.75rem] rounded-[0.25rem] flex flex-col items-center overflow-y-scroll"
       >
         <CreateReviewHeader
           placeName="장소이름"
           handleCreateReviewToggle={handleCreateReviewToggle}
         />
         <CreateReviewRate review={input} setReview={setInput} />
-        open
+        <CreateReviewContent content={input.content} onChangeContent={handleInputChange} />
       </dialog>
     </>
   );
