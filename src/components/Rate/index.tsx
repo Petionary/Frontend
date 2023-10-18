@@ -7,9 +7,10 @@ interface RateProps {
   reviews?: object[];
   list?: boolean;
   grade_only?: boolean;
+  size?: 'sm' | 'md';
 }
 
-const Rate = ({ rate, reviews, grade_only, list = false }: RateProps) => {
+const Rate = ({ rate, reviews, grade_only, size = 'sm', list = false }: RateProps) => {
   const decimal = Number((rate % 1).toFixed(1));
   const integer = rate - decimal;
 

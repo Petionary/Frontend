@@ -39,6 +39,8 @@ const ReviewContainer = () => {
         />
       )}
       <ReviewBox />
+      {/* 후기 더 보기 버튼 클릭 => 리뷰 4객씩 더 불러오기 */}
+      {/* 후기 더 보기 로딩 중 스피너  */}
     </section>
   );
 };

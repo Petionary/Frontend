@@ -43,5 +43,5 @@ export interface IReview {
   date: string;
   rate: number;
   content: string;
-  imageURLs?: string[];
+  imageURLs?: Array<string | ArrayBuffer | undefined | null>;
 }

@@ -1,4 +1,5 @@
 import useInput from '../../../../../../hooks/useInput';
+import useUploadImage from '../../../../../../hooks/useUploadImage';
 import { IReview } from '../../../../../../utils/type';
 import CreateReviewContent from './components/CreateReviewContent';
 import CreateReviewHeader from './components/CreateReviewHeader';
@@ -13,6 +14,7 @@ const initialReview: IReview = {
   author: 'tmddus',
   profile_img: '',
   date: new Date().toDateString(),
+  imageURLs: [],
   content: '',
   rate: 0.0,
 };
@@ -22,6 +24,12 @@ const CreateReviewModal = ({
   handleCreateReviewToggle,
 }: CreateReviewModalProps) => {
   const { input, handleInputChange, setInput } = useInput<IReview>(initialReview);
+  const { uploadedFiles, handleUploadFiles, handleDeleteFile } = useUploadImage();
+
+  const handleCreate = () => {
+    setInput({ ...input, imageURLs: uploadedFiles });
+    handleCreateReviewToggle();
+  };
 
   return (
     <>
@@ -35,9 +43,16 @@ const CreateReviewModal = ({
         <CreateReviewHeader
           placeName="장소이름"
           handleCreateReviewToggle={handleCreateReviewToggle}
+          onClickCreateButton={handleCreate}
         />
         <CreateReviewRate review={input} setReview={setInput} />
-        <CreateReviewContent content={input.content} onChangeContent={handleInputChange} />
+        <CreateReviewContent
+          content={input.content}
+          uploadedImages={uploadedFiles}
+          onChangeContent={handleInputChange}
+          onChangeUploadImage={handleUploadFiles}
+          onChnageDeleteImage={handleDeleteFile}
+        />
       </dialog>
     </>
   );

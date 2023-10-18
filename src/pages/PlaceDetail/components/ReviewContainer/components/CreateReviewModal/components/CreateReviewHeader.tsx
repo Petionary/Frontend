@@ -1,9 +1,14 @@
 interface CreateReviewHeaderProps {
   placeName: string;
   handleCreateReviewToggle: () => void;
+  onClickCreateButton: () => void;
 }
 
-const CreateReviewHeader = ({ placeName, handleCreateReviewToggle }: CreateReviewHeaderProps) => {
+const CreateReviewHeader = ({
+  placeName,
+  handleCreateReviewToggle,
+  onClickCreateButton,
+}: CreateReviewHeaderProps) => {
   return (
     <section className="w-full flex justify-between">
       <button
@@ -17,7 +22,7 @@ const CreateReviewHeader = ({ placeName, handleCreateReviewToggle }: CreateRevie
       </h3>
       <button
         className="text-[1.25rem] text-primary font-[600] leading-[2rem] -tracking-[0.00652rem]"
-        onClick={handleCreateReviewToggle}
+        onClick={onClickCreateButton}
       >
         등록
       </button>
