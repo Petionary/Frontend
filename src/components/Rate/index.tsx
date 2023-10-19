@@ -13,6 +13,7 @@ interface RateProps {
 const Rate = ({ rate, reviews, grade_only, size = 'sm', list = false }: RateProps) => {
   const decimal = Number((rate % 1).toFixed(1));
   const integer = rate - decimal;
+  const starSize = size === 'md' ? 'w-[1.875rem] h-[1.875rem]' : '';
 
   const rates = [];
 
@@ -36,9 +37,9 @@ const Rate = ({ rate, reviews, grade_only, size = 'sm', list = false }: RateProp
     <div className={`flex items-center ${list ? 'absolute bottom-[0.94rem] right-[0.88rem]' : ''}`}>
       <span className="flex mr-[0.38rem]">
         {rates.map((star, idx) => {
-          if (star === 'full') return <Full key={idx} className="fill-primary" />;
-          if (star === 'half') return <Half key={idx} />;
-          else return <Empty key={idx} className="fill-[#eeeeee]" />;
+          if (star === 'full') return <Full key={idx} className={`fill-primary ${starSize}`} />;
+          if (star === 'half') return <Half key={idx} className={`${starSize}`} />;
+          else return <Empty key={idx} className={`fill-[#eeeeee] ${starSize}`} />;
         })}
       </span>
       <span
