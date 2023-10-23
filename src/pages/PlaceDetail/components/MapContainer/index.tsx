@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import InfoTitle from '../InfoTitle';
 
 declare global {
   // eslint-disable-next-line no-unused-vars
@@ -26,7 +27,12 @@ const MapContainer = () => {
     kakao.maps.event.addListener(map, 'mousedown', () => map.setDraggable(true));
   }, []);
 
-  return <section id="map" className="w-[80rem] h-[14.375rem] border-t border-b" />;
+  return (
+    <section className="w-full px-[16.67vw] mt-[3.75rem]">
+      <InfoTitle title="위치" />
+      <section id="map" className="h-[14.375rem]" />
+    </section>
+  );
 };
 
 export default MapContainer;
