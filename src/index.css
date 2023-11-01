@@ -24,3 +24,7 @@ select {
   -moz-appearance: none;
   -webkit-appearance: none;
 }
+
+[type='radio'] {
+  appearance: none;
+}
