@@ -42,7 +42,7 @@ const Router = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         {viewport.width > 815 && <Header />}
-        {login && <Register />}
+        {/* <Register /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/" element={<App />} />
