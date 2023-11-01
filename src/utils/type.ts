@@ -18,6 +18,7 @@ export interface IPet {
   species: string;
   detail_species: string;
   about: string;
+  imageSrc: string;
 }
 
 export interface IUserProfile {
@@ -34,4 +35,14 @@ export interface IUser extends IUserProfile {
   birth_date: string;
   profile_url: string;
   pets: IPet[];
+}
+
+export interface IReview {
+  id?: number;
+  author: string;
+  profile_img: string;
+  date: string;
+  rate: number;
+  content: string;
+  imageURLs?: Array<string | ArrayBuffer | undefined | null>;
 }

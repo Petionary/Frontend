@@ -9,7 +9,7 @@ import Login from './pages/Login';
 import Redirect from './pages/Redirect';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, ReducerType } from './store';
-import Register from './components/Register';
+// import Register from './components/Register';
 import { useEffect } from 'react';
 import useScrollLock from './hooks/useScrollLock';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -42,7 +42,7 @@ const Router = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         {viewport.width > 815 && <Header />}
-        {login && <Register />}
+        {/* <Register /> */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/" element={<App />} />

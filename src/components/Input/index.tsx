@@ -4,12 +4,13 @@ interface InputProps extends ComponentPropsWithoutRef<'input'> {
   value: string;
   label?: string | undefined;
   isValid?: boolean | undefined;
-  width?: 'sm' | 'md' | 'lg';
+  width?: 'xs' | 'sm' | 'md' | 'lg';
   guide?: string | undefined;
   required?: boolean;
 }
 
 const WIDTH = {
+  xs: 'w-[6.75rem]',
   sm: 'w-[15rem]',
   md: 'w-[21.375rem]',
   lg: 'w-[36.25rem]',
@@ -37,7 +38,7 @@ const Input = ({
     return (
       <input
         value={value}
-        className={`border-b-2 font-[400] px-[0.75rem] outline-none placeholder::text-[1.125rem] disabled:text-gray-40 distabled:border-gray-40 bg-inherit h-[3.75rem] ${WIDTH[width]} ${color}`}
+        className={`border-b-[0.06rem] font-[400] px-[0.75rem] outline-none placeholder::text-[1.125rem] disabled:text-gray-40 distabled:border-gray-40 bg-inherit h-[3.75rem] ${WIDTH[width]} ${color}`}
         {...rest}
       />
     );
@@ -61,7 +62,7 @@ const Input = ({
 
       <input
         value={value}
-        className={`border-b-2 font-[400] px-[0.75rem] outline-none placeholder::text-[1.125rem] disabled:text-gray-40 distabled:border-gray-40 bg-inherit h-[2.75rem] ${WIDTH[width]} ${color}`}
+        className={`border-b-[0.06rem] font-[400] px-[0.75rem] outline-none placeholder::text-[1.125rem] disabled:text-gray-40 distabled:border-gray-40 bg-inherit h-[2.75rem] ${WIDTH[width]} ${color}`}
         {...rest}
       />
       {!isValid && value.length > 0 && guide && (
