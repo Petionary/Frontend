@@ -1,10 +1,14 @@
 import PetInfoRadio from './PetSpeciesRadio';
 
-const PetGenderField = () => {
+interface PetGenderFieldProps {
+  editToggle: boolean;
+}
+
+const PetGenderField = ({ editToggle }: PetGenderFieldProps) => {
   return (
     <fieldset className="flex flex-col">
-      <PetInfoRadio type="male" />
-      <PetInfoRadio type="female" />
+      <PetInfoRadio type="male" disabled={!editToggle} />
+      <PetInfoRadio type="female" disabled={!editToggle} />
     </fieldset>
   );
 };

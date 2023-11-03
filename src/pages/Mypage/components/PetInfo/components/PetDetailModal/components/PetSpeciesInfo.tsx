@@ -1,11 +1,15 @@
 import PetSpeciesRadio from './PetSpeciesRadio';
 
-const PetSpeciesField = () => {
+interface PetSpeciesFieldProps {
+  editToggle: boolean;
+}
+
+const PetSpeciesField = ({ editToggle }: PetSpeciesFieldProps) => {
   return (
     <fieldset className="flex flex-col">
-      <PetSpeciesRadio type="dog" />
-      <PetSpeciesRadio type="cat" />
-      <PetSpeciesRadio type="etc" />
+      <PetSpeciesRadio type="dog" disabled={!editToggle} />
+      <PetSpeciesRadio type="cat" disabled={!editToggle} />
+      <PetSpeciesRadio type="etc" disabled={!editToggle} />
     </fieldset>
   );
 };
