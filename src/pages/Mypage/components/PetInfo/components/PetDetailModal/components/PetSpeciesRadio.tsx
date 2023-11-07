@@ -1,8 +1,9 @@
 import { ComponentPropsWithoutRef } from 'react';
 
 interface PetSpeciesRadioProps extends ComponentPropsWithoutRef<'input'> {
-  checked_pet?: 'dog' | 'cat' | 'etc';
+  editToggle?: boolean;
   type: 'dog' | 'cat' | 'etc' | 'male' | 'female';
+  detail_species?: string;
 }
 
 const TYPE = {
@@ -13,12 +14,11 @@ const TYPE = {
   etc: '👼',
 };
 
-const PetInfoRadio = ({ type, checked_pet, ...rest }: PetSpeciesRadioProps) => {
+const PetInfoRadio = ({ type, detail_species, editToggle, ...rest }: PetSpeciesRadioProps) => {
   return (
     <label className="flex items-end h-[2.75rem]">
       <input
         type="radio"
-        name="species"
         value={type}
         className="mr-[0.88rem] cursor-pointer border-[4px] rounded-full w-[1rem] h-[1rem] checked:bg-primary"
         {...rest}
@@ -28,8 +28,11 @@ const PetInfoRadio = ({ type, checked_pet, ...rest }: PetSpeciesRadioProps) => {
         <input
           type="text"
           name="detail_species"
-          className="border-b-[0.06rem] w-[6.75rem] py-[0.81rem] h-[2rem] border-gray-40 outline-none disabled:bg-inherit"
-          disabled={checked_pet !== type}
+          value={detail_species}
+          className="border-b-[0.06rem] w-[6.75rem] py-[0.81rem] h-[2rem] border-gray-40 outline-none disabled:bg-inherit placeholder:text-[0.9375rem] placeholder:font-[400] -tracking-[0.00469rem] text-[#666] disabled:text-gray-40 disabled:placeholder:text-gray-40"
+          disabled={!editToggle}
+          placeholder="상세 종 입력"
+          onChange={rest.onChange}
         />
       )}
     </label>

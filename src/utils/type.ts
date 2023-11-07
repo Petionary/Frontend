@@ -11,10 +11,10 @@ export interface IPlace {
 }
 
 export interface IPet {
-  id: number;
+  id?: number;
   name: string;
   birth_date: string;
-  gender: boolean;
+  gender?: string;
   species: string;
   detail_species: string;
   about: string;

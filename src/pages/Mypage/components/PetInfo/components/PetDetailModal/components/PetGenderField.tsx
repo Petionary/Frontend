@@ -1,14 +1,30 @@
+import { ChangeEvent } from 'react';
 import PetInfoRadio from './PetSpeciesRadio';
 
 interface PetGenderFieldProps {
   editToggle: boolean;
+  gender?: string;
+  // eslint-disable-next-line no-unused-vars
+  onChangeGender: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const PetGenderField = ({ editToggle }: PetGenderFieldProps) => {
+const PetGenderField = ({ editToggle, gender, onChangeGender }: PetGenderFieldProps) => {
   return (
     <fieldset className="flex flex-col">
-      <PetInfoRadio type="male" disabled={!editToggle} />
-      <PetInfoRadio type="female" disabled={!editToggle} />
+      <PetInfoRadio
+        name="gender"
+        type="male"
+        disabled={!editToggle}
+        onChange={onChangeGender}
+        checked={gender === 'male'}
+      />
+      <PetInfoRadio
+        name="gender"
+        type="female"
+        disabled={!editToggle}
+        onChange={onChangeGender}
+        checked={gender === 'female'}
+      />
     </fieldset>
   );
 };

@@ -17,7 +17,7 @@ const PetInfo = ({ petList }: PetInfoProps) => {
     <section className="px-[5.44rem] pt-[3.7vh] overflow-scroll">
       <InfoTitle title="My Pet" />
       {detailToggle ? (
-        <PetDetailModal petId={petId} />
+        <PetDetailModal petId={petId} handleDetailToggle={handleDetailToggle} />
       ) : (
         <PetList pets={petList} handleDetailToggle={handleDetailToggle} setPetId={setPetId} />
       )}
