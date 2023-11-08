@@ -18,7 +18,7 @@ export interface IPet {
   species: string;
   detail_species: string;
   about: string;
-  imageSrc: string;
+  profile_url: string;
 }
 
 export interface IUserProfile {

@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
-import useInput from '../../../../../../../hooks/useInput';
-import useToggle from '../../../../../../../hooks/useToggle';
+import { ChangeEvent } from 'react';
 import { IPet } from '../../../../../../../utils/type';
 import PetBasicInfo from './PetBasicInfo';
 import PetDetailButtons from './PetDetailButtons';
@@ -8,34 +6,23 @@ import PetGenderField from './PetGenderField';
 import PetSpeciesField from './PetSpeciesInfo';
 
 interface PetDetailFormProps {
-  pet?: IPet;
+  petInput: IPet;
+  // eslint-disable-next-line no-unused-vars
+  handlePetInputChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   handleDetailToggle: () => void;
+  resetPetInput: () => void;
+  editToggle: boolean;
+  handleEditToggle: () => void;
 }
 
-const PetDetailForm = ({ pet, handleDetailToggle }: PetDetailFormProps) => {
-  const initialPetInput = {
-    id: pet?.id,
-    name: pet?.name || '',
-    species: pet?.species || '',
-    detail_species: pet?.detail_species || '',
-    birth_date: pet?.birth_date || '',
-    gender: pet?.gender,
-    about: pet?.about || '',
-    imageSrc: pet?.imageSrc || '',
-  };
-
-  const {
-    input: petInput,
-    handleInputChange: handlePetInputChange,
-    setInput: setPetInput,
-  } = useInput<IPet>(initialPetInput);
-
-  useEffect(() => {
-    if (petInput.species !== pet?.species) setPetInput({ ...petInput, detail_species: '' });
-  }, [petInput.species]);
-
-  const [editToggle, handleEditToggle] = useToggle(pet === undefined);
-
+const PetDetailForm = ({
+  petInput,
+  handleDetailToggle,
+  handlePetInputChange,
+  resetPetInput,
+  editToggle,
+  handleEditToggle,
+}: PetDetailFormProps) => {
   return (
     <form className="w-[33.4375rem]">
       <PetBasicInfo
@@ -72,9 +59,8 @@ const PetDetailForm = ({ pet, handleDetailToggle }: PetDetailFormProps) => {
         handleEditToggle={handleEditToggle}
         editToggle={editToggle}
         handleDetailToggle={handleDetailToggle}
-        initialInput={initialPetInput}
+        resetPetInput={resetPetInput}
         petInput={petInput}
-        setInput={setPetInput}
       />
     </form>
   );

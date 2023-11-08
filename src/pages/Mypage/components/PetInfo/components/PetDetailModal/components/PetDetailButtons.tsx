@@ -7,16 +7,14 @@ interface PetDetailButtonsProps {
   handleEditToggle: () => void;
   handleDetailToggle: () => void;
   petInput: IPet;
-  initialInput: IPet;
-  setInput: React.Dispatch<React.SetStateAction<IPet>>;
+  resetPetInput: () => void;
 }
 
 const PetDetailButtons = ({
   handleEditToggle,
   editToggle,
   handleDetailToggle,
-  initialInput,
-  setInput,
+  resetPetInput,
 }: PetDetailButtonsProps) => {
   const handleEditPetInfo = (e: FormEvent) => {
     e.preventDefault();
@@ -30,7 +28,7 @@ const PetDetailButtons = ({
 
   const handleCancelEdit = (e: FormEvent) => {
     e.preventDefault();
-    setInput(initialInput);
+    resetPetInput();
     handleEditToggle();
   };
 
