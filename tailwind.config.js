@@ -33,6 +33,11 @@ export default {
         'gray-10': '#FAFAFA',
         background: '#F8F8FA',
       },
+      gridTemplateColumns: {
+        'auto-fill-cards': 'repeat(auto-fill, 14.75rem)',
+        'auto-fill-place': 'repeat(auto-fit, minmax(25rem, 1fr))',
+        'auto-fill-review': 'repeat(auto-fit, minmax(39.375rem, 1fr))',
+      },
     },
   },
   plugins: [],

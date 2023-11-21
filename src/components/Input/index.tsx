@@ -1,55 +1,73 @@
 import { ComponentPropsWithoutRef } from 'react';
 
 interface InputProps extends ComponentPropsWithoutRef<'input'> {
-  label?: string;
-  width?: 'sm' | 'md' | 'lg' | 'full'; // default = 'md'
-  position?: 'relative' | 'fixed' | 'absolute'; // default = 'relative'
-  rounded?: boolean; // default = false
-  margin?: string; // default = 'm-0'
-  guideLine?: string;
-  bold?: boolean;
-  inputValidation?: boolean;
+  value: string;
+  label?: string | undefined;
+  isValid?: boolean | undefined;
+  width?: 'xs' | 'sm' | 'md' | 'lg';
+  guide?: string | undefined;
   required?: boolean;
 }
 
-const INPUT_SIZE = {
+const WIDTH = {
+  xs: 'w-[6.75rem]',
   sm: 'w-[15rem]',
-  md: 'w-[20rem]',
-  lg: 'w-[25rem]',
-  full: '',
+  md: 'w-[21.375rem]',
+  lg: 'w-[36.25rem]',
 };
+
+//
 
 const Input = ({
   label,
+  isValid,
+  guide,
   width = 'md',
-  margin = 'm-0',
-  position = 'relative',
-  guideLine,
-  rounded = false,
-  bold = false,
-  inputValidation = true,
+  value,
   required = false,
   ...rest
 }: InputProps) => {
-  const isBold = bold ? 'font-bold' : '';
-  const isRounded = rounded ? 'rounded-full' : 'rounded-md';
-  const isInvalid = !inputValidation ? 'outline-red' : '';
+  const color =
+    !required || value?.length === 0
+      ? 'border-gray-40'
+      : isValid
+      ? 'text-primary border-primary'
+      : 'text-red border-red';
 
-  return (
-    <label className={`flex flex-col text-xs ${margin} ${position} `}>
-      {label && (
-        <div className={`text-text px-1 ${isBold}`}>
-          {label} {required && <span className="text-red">*</span>}
-        </div>
-      )}
+  if (!label)
+    return (
       <input
-        className={`input ${isRounded} ${INPUT_SIZE[width]} ${isInvalid}`}
-        placeholder={rest.placeholder ? rest.placeholder : '내용을 입력해주세요.'}
+        value={value}
+        className={`border-b-[0.06rem] font-[400] px-[0.75rem] outline-none placeholder::text-[1.125rem] disabled:text-gray-40 distabled:border-gray-40 bg-inherit h-[3.75rem] ${WIDTH[width]} ${color}`}
         {...rest}
       />
-      {guideLine && (
-        <p className={`text-xs px-1 ${!inputValidation ? 'text-red-light' : 'text-light'}`}>
-          {guideLine}
+    );
+  {
+    !isValid && value.length > 0 && guide && (
+      <p className="px-[0.75rem] text-[0.75rem] text-gray-50 h-[1.4375rem] leading-[1.5rem]">
+        {guide}
+      </p>
+    );
+  }
+
+  return (
+    <label className="h-[4.505rem] flex flex-col justify-between pt-[0.13rem]">
+      <p
+        className={`text-[0.9375rem] h-[1.125rem] mb-[0.125rem] ${
+          rest.disabled ? 'text-gray-40' : 'text-gray-90'
+        }`}
+      >
+        {label}
+      </p>
+
+      <input
+        value={value}
+        className={`border-b-[0.06rem] font-[400] px-[0.75rem] outline-none placeholder::text-[1.125rem] disabled:text-gray-40 distabled:border-gray-40 bg-inherit h-[2.75rem] ${WIDTH[width]} ${color}`}
+        {...rest}
+      />
+      {!isValid && value.length > 0 && guide && (
+        <p className="px-[0.75rem] text-[0.75rem] text-gray-50 h-[1.4375rem] leading-[1.5rem]">
+          {guide}
         </p>
       )}
     </label>
